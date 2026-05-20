@@ -1,4 +1,5 @@
-import { Sparkles, Search, Bot, ArrowRight } from "lucide-react";
+import type { CSSProperties } from "react";
+import { Sparkles, Search, Bot } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -13,7 +14,7 @@ const FLOATING_BADGES = [
         title: "HEC Scholarship Open",
         sub: "Need-based · 2026 cycle",
         pulse: true,
-        pos: { top: 20, right: -20 } as React.CSSProperties,
+        pos: { top: 20, right: -20 } as CSSProperties,
         anim: "floatCard1 4.5s ease-in-out infinite",
     },
     {
@@ -21,7 +22,7 @@ const FLOATING_BADGES = [
         title: "Career Match Found",
         sub: "Software Engineer · 96% fit",
         pulse: false,
-        pos: { bottom: 80, right: -24 } as React.CSSProperties,
+        pos: { bottom: 80, right: -24 } as CSSProperties,
         anim: "floatCard2 5.5s ease-in-out 0.6s infinite",
     },
     {
@@ -29,7 +30,7 @@ const FLOATING_BADGES = [
         title: "BUITEMS Admissions",
         sub: "Deadline · Aug 15, 2026",
         pulse: false,
-        pos: { bottom: 110, left: -12 } as React.CSSProperties,
+        pos: { bottom: 110, left: -12 } as CSSProperties,
         anim: "floatCard3 4s ease-in-out 1.2s infinite",
     },
 ];
@@ -73,19 +74,15 @@ export function HeroSection() {
             <div style={{ maxWidth: 1180, margin: "0 auto", width: "100%" }}>
                 <div className="hero-grid">
 
-                    {/* ════════════════════════
-              LEFT — COPY
-          ════════════════════════ */}
+                    {/* ── LEFT COPY ── */}
                     <div>
 
-                        {/* Eyebrow */}
                         <div className="fade-up-0" style={{ marginBottom: 28 }}>
                             <Badge color="purple" dot>
                                 AI-POWERED PLATFORM FOR PAKISTANI STUDENTS
                             </Badge>
                         </div>
 
-                        {/* Headline */}
                         <h1
                             className="fade-up-1"
                             style={{
@@ -107,7 +104,6 @@ export function HeroSection() {
                             in Pakistan
                         </h1>
 
-                        {/* Typing line */}
                         <div
                             className="fade-up-2"
                             style={{
@@ -121,13 +117,9 @@ export function HeroSection() {
                             <span style={{ color: "#6B6B8F", fontSize: 16, fontWeight: 400 }}>
                                 Powered by AI for
                             </span>
-                            <TypingText
-                                words={TYPING_WORDS}
-                                style={{ color: "#A78BFA", fontSize: 16, fontWeight: 600 } as React.CSSProperties}
-                            />
+                            <TypingText words={TYPING_WORDS} />
                         </div>
 
-                        {/* Description */}
                         <p
                             className="fade-up-2"
                             style={{
@@ -144,7 +136,6 @@ export function HeroSection() {
                             from Balochistan.
                         </p>
 
-                        {/* CTA Buttons */}
                         <div
                             className="fade-up-3"
                             style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 36 }}
@@ -157,7 +148,6 @@ export function HeroSection() {
                             </Button>
                         </div>
 
-                        {/* Trust Badges */}
                         <div className="fade-up-4 trust-row">
                             {TRUST_BADGES.map((b) => (
                                 <div
@@ -176,9 +166,7 @@ export function HeroSection() {
                         </div>
                     </div>
 
-                    {/* ════════════════════════
-              RIGHT — VISUAL
-          ════════════════════════ */}
+                    {/* ── RIGHT VISUAL ── */}
                     <div
                         className="hero-visual"
                         style={{
@@ -188,7 +176,6 @@ export function HeroSection() {
                             justifyContent: "center",
                         }}
                     >
-                        {/* Glow rings */}
                         <div
                             style={{
                                 position: "absolute",
@@ -219,43 +206,30 @@ export function HeroSection() {
                                 boxShadow: "0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.08)",
                             }}
                         >
-                            {/* Card Header */}
                             <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 18 }}>
                                 <div
                                     style={{
-                                        width: 42, height: 42,
-                                        borderRadius: 13,
-                                        flexShrink: 0,
+                                        width: 42, height: 42, borderRadius: 13, flexShrink: 0,
                                         background: "linear-gradient(135deg,#7C3AED,#22D3EE)",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
+                                        display: "flex", alignItems: "center", justifyContent: "center",
                                         boxShadow: "0 0 24px rgba(139,92,246,0.5)",
                                     }}
                                 >
                                     <Bot size={21} color="#fff" />
                                 </div>
                                 <div>
-                                    <p
-                                        style={{
-                                            fontSize: 14,
-                                            fontWeight: 700,
-                                            color: "#EEEEFF",
-                                            fontFamily: "var(--font-syne,'Syne',sans-serif)",
-                                        }}
-                                    >
+                                    <p style={{
+                                        fontSize: 14, fontWeight: 700, color: "#EEEEFF",
+                                        fontFamily: "var(--font-syne,'Syne',sans-serif)",
+                                    }}>
                                         TaleemAI Mentor
                                     </p>
                                     <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 3 }}>
-                                        <span
-                                            style={{
-                                                width: 6, height: 6,
-                                                borderRadius: "50%",
-                                                background: "#10B981",
-                                                display: "inline-block",
-                                                animation: "pulseDot 2s ease-in-out infinite",
-                                            }}
-                                        />
+                                        <span style={{
+                                            width: 6, height: 6, borderRadius: "50%",
+                                            background: "#10B981", display: "inline-block",
+                                            animation: "pulseDot 2s ease-in-out infinite",
+                                        }} />
                                         <span style={{ fontSize: 10.5, color: "#10B981", fontWeight: 600 }}>
                                             Online · Always here for you
                                         </span>
@@ -263,95 +237,59 @@ export function HeroSection() {
                                 </div>
                             </div>
 
-                            {/* Divider */}
-                            <hr
-                                style={{
-                                    border: "none",
-                                    height: 1,
-                                    marginBottom: 16,
-                                    background:
-                                        "linear-gradient(90deg,transparent,rgba(139,92,246,0.3),rgba(34,211,238,0.3),transparent)",
-                                }}
-                            />
+                            <hr style={{
+                                border: "none", height: 1, marginBottom: 16,
+                                background: "linear-gradient(90deg,transparent,rgba(139,92,246,0.3),rgba(34,211,238,0.3),transparent)",
+                            }} />
 
-                            {/* Messages */}
                             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                                <div
-                                    style={{
-                                        maxWidth: 235,
-                                        padding: "11px 15px",
-                                        borderRadius: "14px 14px 14px 3px",
-                                        fontSize: 12.5,
-                                        lineHeight: 1.65,
-                                        color: "#EEEEFF",
-                                        background: "rgba(139,92,246,0.14)",
-                                        border: "1px solid rgba(139,92,246,0.28)",
-                                    }}
-                                >
+                                <div style={{
+                                    maxWidth: 235, padding: "11px 15px",
+                                    borderRadius: "14px 14px 14px 3px",
+                                    fontSize: 12.5, lineHeight: 1.65, color: "#EEEEFF",
+                                    background: "rgba(139,92,246,0.14)",
+                                    border: "1px solid rgba(139,92,246,0.28)",
+                                }}>
                                     I just finished FSC Pre-Engineering. What should I study?
                                 </div>
 
-                                <div
-                                    style={{
-                                        maxWidth: 250,
-                                        padding: "11px 15px",
-                                        alignSelf: "flex-end",
-                                        borderRadius: "14px 14px 3px 14px",
-                                        fontSize: 12.5,
-                                        lineHeight: 1.65,
-                                        color: "#EEEEFF",
-                                        background: "rgba(34,211,238,0.09)",
-                                        border: "1px solid rgba(34,211,238,0.22)",
-                                    }}
-                                >
+                                <div style={{
+                                    maxWidth: 250, padding: "11px 15px", alignSelf: "flex-end",
+                                    borderRadius: "14px 14px 3px 14px",
+                                    fontSize: 12.5, lineHeight: 1.65, color: "#EEEEFF",
+                                    background: "rgba(34,211,238,0.09)",
+                                    border: "1px solid rgba(34,211,238,0.22)",
+                                }}>
                                     Great start! Based on your background, here are your top paths →
                                 </div>
 
-                                {/* Suggestion chips */}
                                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
                                     {CHIPS.map((chip) => (
-                                        <span
-                                            key={chip}
-                                            style={{
-                                                padding: "4px 11px",
-                                                borderRadius: 8,
-                                                fontSize: 11,
-                                                fontWeight: 600,
-                                                background: "rgba(139,92,246,0.14)",
-                                                border: "1px solid rgba(139,92,246,0.3)",
-                                                color: "#C4B5FD",
-                                                cursor: "pointer",
-                                            }}
-                                        >
+                                        <span key={chip} style={{
+                                            padding: "4px 11px", borderRadius: 8,
+                                            fontSize: 11, fontWeight: 600,
+                                            background: "rgba(139,92,246,0.14)",
+                                            border: "1px solid rgba(139,92,246,0.3)",
+                                            color: "#C4B5FD", cursor: "pointer",
+                                        }}>
                                             {chip}
                                         </span>
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Typing indicator */}
-                            <div
-                                style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 8,
-                                    marginTop: 14,
-                                    paddingTop: 12,
-                                    borderTop: "1px solid rgba(255,255,255,0.07)",
-                                }}
-                            >
+                            <div style={{
+                                display: "flex", alignItems: "center", gap: 8,
+                                marginTop: 14, paddingTop: 12,
+                                borderTop: "1px solid rgba(255,255,255,0.07)",
+                            }}>
                                 <div style={{ display: "flex", gap: 4 }}>
                                     {[0, 0.2, 0.4].map((delay, i) => (
-                                        <span
-                                            key={i}
-                                            style={{
-                                                width: 5, height: 5,
-                                                borderRadius: "50%",
-                                                background: "#A78BFA",
-                                                display: "inline-block",
-                                                animation: `dotPulse 1.4s ${delay}s ease-in-out infinite both`,
-                                            }}
-                                        />
+                                        <span key={i} style={{
+                                            width: 5, height: 5, borderRadius: "50%",
+                                            background: "#A78BFA", display: "inline-block",
+                                            animation: `dotPulse 1.4s ${delay}s ease-in-out infinite both`,
+                                        }} />
                                     ))}
                                 </div>
                                 <span style={{ fontSize: 11, color: "#6B6B8F" }}>
@@ -385,16 +323,11 @@ export function HeroSection() {
                                         </p>
                                     </div>
                                     {b.pulse && (
-                                        <span
-                                            style={{
-                                                width: 8, height: 8,
-                                                borderRadius: "50%",
-                                                background: "#10B981",
-                                                flexShrink: 0,
-                                                marginLeft: "auto",
-                                                animation: "pulseDot 1.5s ease-in-out infinite",
-                                            }}
-                                        />
+                                        <span style={{
+                                            width: 8, height: 8, borderRadius: "50%",
+                                            background: "#10B981", flexShrink: 0, marginLeft: "auto",
+                                            animation: "pulseDot 1.5s ease-in-out infinite",
+                                        }} />
                                     )}
                                 </div>
                             </GlassCard>
