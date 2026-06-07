@@ -1,7 +1,7 @@
 import type { NavLink, FooterColumn } from "@/types";
 
 export const NAV_LINKS: NavLink[] = [
-    { label: "Careers", href: "/careers" },
+    { label: "AI Counselor", href: "/counselor" },
     { label: "Degrees", href: "/degrees" },
     { label: "Scholarships", href: "/scholarships" },
     { label: "Skills", href: "/skills" },
