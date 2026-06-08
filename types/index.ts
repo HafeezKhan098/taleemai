@@ -176,3 +176,19 @@ export interface University {
     ranking: string;
     known: string[];
 }
+// ── Scholarship (database entry type) ──
+export interface Scholarship {
+    id: string;
+    title: string;
+    provider: string;
+    type: "need-based" | "merit" | "international" | "provincial" | "fully-funded";
+    country: string;
+    amount: string;
+    deadline: string;
+    eligibility: string[];
+    description: string;
+    link: string;
+    tags: string[];
+    isOpen: boolean;
+    color: string;
+}
