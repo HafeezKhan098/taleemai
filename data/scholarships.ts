@@ -37,7 +37,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
             "Enrolled in public sector university",
             "No active job/scholarship",
         ],
-        link: "https://hec.gov.pk",
+        link: "https://www.hec.gov.pk/english/scholarshipsAnd/Scholarships/Pages/default.aspx",
         tags: ["Government", "Merit", "Public universities"],
     },
     {
@@ -97,7 +97,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
             "Minimum 55% marks",
             "Priority to merit + need cases",
         ],
-        link: "https://hedb.gob.pk",
+        link: "https://balochistan.gov.pk",
         tags: ["Balochistan", "Provincial", "Need-based", "All fields"],
     },
     {
@@ -137,7 +137,7 @@ export const SCHOLARSHIPS: Scholarship[] = [
             "Minimum 60% marks",
             "Not receiving other government scholarship",
         ],
-        link: "https://ehsaas.gov.pk",
+        link: "https://www.pass.gov.pk",
         tags: ["Government", "Need-based", "Monthly stipend", "All fields"],
     },
     {
