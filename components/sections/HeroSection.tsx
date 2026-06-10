@@ -74,20 +74,24 @@ export function HeroSection() {
             <div style={{ maxWidth: 1180, margin: "0 auto", width: "100%" }}>
                 <div className="hero-grid">
 
-                    {/* ── LEFT COPY ── */}
+                    {/* ══════════════════════
+              LEFT — COPY
+          ══════════════════════ */}
                     <div>
 
+                        {/* Badge */}
                         <div className="fade-up-0" style={{ marginBottom: 28 }}>
                             <Badge color="purple" dot>
-                                AI-POWERED PLATFORM FOR PAKISTANI STUDENTS
+                                AI-POWERED PLATFORM FOR PAKISTAN
                             </Badge>
                         </div>
 
+                        {/* Headline */}
                         <h1
                             className="fade-up-1"
                             style={{
                                 fontFamily: "var(--font-syne,'Syne',sans-serif)",
-                                fontSize: "clamp(44px, 6vw, 64px)",
+                                fontSize: "clamp(38px, 6vw, 64px)",
                                 fontWeight: 800,
                                 lineHeight: 1.04,
                                 letterSpacing: "-2.5px",
@@ -104,6 +108,7 @@ export function HeroSection() {
                             in Pakistan
                         </h1>
 
+                        {/* Typing */}
                         <div
                             className="fade-up-2"
                             style={{
@@ -117,9 +122,13 @@ export function HeroSection() {
                             <span style={{ color: "#6B6B8F", fontSize: 16, fontWeight: 400 }}>
                                 Powered by AI for
                             </span>
-                            <TypingText words={TYPING_WORDS} />
+                            <TypingText
+                                words={TYPING_WORDS}
+                                style={{ color: "#A78BFA", fontSize: 16, fontWeight: 600 } as CSSProperties}
+                            />
                         </div>
 
+                        {/* Description */}
                         <p
                             className="fade-up-2"
                             style={{
@@ -136,18 +145,20 @@ export function HeroSection() {
                             from Balochistan.
                         </p>
 
+                        {/* CTA Buttons */}
                         <div
                             className="fade-up-3"
                             style={{ display: "flex", flexWrap: "wrap", gap: 12, marginBottom: 36 }}
                         >
-                            <Button variant="primary" size="lg">
+                            <Button variant="primary" size="lg" className="mobile-full">
                                 <Sparkles size={16} /> Talk to AI Mentor
                             </Button>
-                            <Button variant="ghost" size="lg">
+                            <Button variant="ghost" size="lg" className="mobile-full">
                                 <Search size={15} /> Explore Careers
                             </Button>
                         </div>
 
+                        {/* Trust Badges */}
                         <div className="fade-up-4 trust-row">
                             {TRUST_BADGES.map((b) => (
                                 <div
@@ -166,7 +177,9 @@ export function HeroSection() {
                         </div>
                     </div>
 
-                    {/* ── RIGHT VISUAL ── */}
+                    {/* ══════════════════════
+              RIGHT — VISUAL
+          ══════════════════════ */}
                     <div
                         className="hero-visual"
                         style={{
@@ -176,24 +189,23 @@ export function HeroSection() {
                             justifyContent: "center",
                         }}
                     >
-                        <div
-                            style={{
-                                position: "absolute",
-                                width: 420, height: 420,
-                                borderRadius: "50%",
-                                pointerEvents: "none",
-                                background: "radial-gradient(circle,rgba(139,92,246,0.16) 0%,transparent 68%)",
-                            }}
-                        />
-                        <div
-                            style={{
-                                position: "absolute",
-                                width: 280, height: 280,
-                                borderRadius: "50%",
-                                pointerEvents: "none",
-                                background: "radial-gradient(circle,rgba(34,211,238,0.1) 0%,transparent 68%)",
-                            }}
-                        />
+                        {/* Glow rings */}
+                        <div style={{
+                            position: "absolute",
+                            width: 420,
+                            height: 420,
+                            borderRadius: "50%",
+                            pointerEvents: "none",
+                            background: "radial-gradient(circle,rgba(139,92,246,0.16) 0%,transparent 68%)",
+                        }} />
+                        <div style={{
+                            position: "absolute",
+                            width: 280,
+                            height: 280,
+                            borderRadius: "50%",
+                            pointerEvents: "none",
+                            background: "radial-gradient(circle,rgba(34,211,238,0.1) 0%,transparent 68%)",
+                        }} />
 
                         {/* AI Chat Card */}
                         <GlassCard
@@ -206,28 +218,37 @@ export function HeroSection() {
                                 boxShadow: "0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.08)",
                             }}
                         >
+                            {/* Header */}
                             <div style={{ display: "flex", alignItems: "center", gap: 11, marginBottom: 18 }}>
-                                <div
-                                    style={{
-                                        width: 42, height: 42, borderRadius: 13, flexShrink: 0,
-                                        background: "linear-gradient(135deg,#7C3AED,#22D3EE)",
-                                        display: "flex", alignItems: "center", justifyContent: "center",
-                                        boxShadow: "0 0 24px rgba(139,92,246,0.5)",
-                                    }}
-                                >
+                                <div style={{
+                                    width: 42,
+                                    height: 42,
+                                    borderRadius: 13,
+                                    flexShrink: 0,
+                                    background: "linear-gradient(135deg,#7C3AED,#22D3EE)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    boxShadow: "0 0 24px rgba(139,92,246,0.5)",
+                                }}>
                                     <Bot size={21} color="#fff" />
                                 </div>
                                 <div>
                                     <p style={{
-                                        fontSize: 14, fontWeight: 700, color: "#EEEEFF",
+                                        fontSize: 14,
+                                        fontWeight: 700,
+                                        color: "#EEEEFF",
                                         fontFamily: "var(--font-syne,'Syne',sans-serif)",
                                     }}>
                                         TaleemAI Mentor
                                     </p>
                                     <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 3 }}>
                                         <span style={{
-                                            width: 6, height: 6, borderRadius: "50%",
-                                            background: "#10B981", display: "inline-block",
+                                            width: 6,
+                                            height: 6,
+                                            borderRadius: "50%",
+                                            background: "#10B981",
+                                            display: "inline-block",
                                             animation: "pulseDot 2s ease-in-out infinite",
                                         }} />
                                         <span style={{ fontSize: 10.5, color: "#10B981", fontWeight: 600 }}>
@@ -237,16 +258,23 @@ export function HeroSection() {
                                 </div>
                             </div>
 
+                            {/* Divider */}
                             <hr style={{
-                                border: "none", height: 1, marginBottom: 16,
+                                border: "none",
+                                height: 1,
+                                marginBottom: 16,
                                 background: "linear-gradient(90deg,transparent,rgba(139,92,246,0.3),rgba(34,211,238,0.3),transparent)",
                             }} />
 
+                            {/* Chat Messages */}
                             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                                 <div style={{
-                                    maxWidth: 235, padding: "11px 15px",
+                                    maxWidth: 235,
+                                    padding: "11px 15px",
                                     borderRadius: "14px 14px 14px 3px",
-                                    fontSize: 12.5, lineHeight: 1.65, color: "#EEEEFF",
+                                    fontSize: 12.5,
+                                    lineHeight: 1.65,
+                                    color: "#EEEEFF",
                                     background: "rgba(139,92,246,0.14)",
                                     border: "1px solid rgba(139,92,246,0.28)",
                                 }}>
@@ -254,23 +282,31 @@ export function HeroSection() {
                                 </div>
 
                                 <div style={{
-                                    maxWidth: 250, padding: "11px 15px", alignSelf: "flex-end",
+                                    maxWidth: 250,
+                                    padding: "11px 15px",
+                                    alignSelf: "flex-end",
                                     borderRadius: "14px 14px 3px 14px",
-                                    fontSize: 12.5, lineHeight: 1.65, color: "#EEEEFF",
+                                    fontSize: 12.5,
+                                    lineHeight: 1.65,
+                                    color: "#EEEEFF",
                                     background: "rgba(34,211,238,0.09)",
                                     border: "1px solid rgba(34,211,238,0.22)",
                                 }}>
                                     Great start! Based on your background, here are your top paths →
                                 </div>
 
+                                {/* Chips */}
                                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 4 }}>
                                     {CHIPS.map((chip) => (
                                         <span key={chip} style={{
-                                            padding: "4px 11px", borderRadius: 8,
-                                            fontSize: 11, fontWeight: 600,
+                                            padding: "4px 11px",
+                                            borderRadius: 8,
+                                            fontSize: 11,
+                                            fontWeight: 600,
                                             background: "rgba(139,92,246,0.14)",
                                             border: "1px solid rgba(139,92,246,0.3)",
-                                            color: "#C4B5FD", cursor: "pointer",
+                                            color: "#C4B5FD",
+                                            cursor: "pointer",
                                         }}>
                                             {chip}
                                         </span>
@@ -278,16 +314,23 @@ export function HeroSection() {
                                 </div>
                             </div>
 
+                            {/* Typing indicator */}
                             <div style={{
-                                display: "flex", alignItems: "center", gap: 8,
-                                marginTop: 14, paddingTop: 12,
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 8,
+                                marginTop: 14,
+                                paddingTop: 12,
                                 borderTop: "1px solid rgba(255,255,255,0.07)",
                             }}>
                                 <div style={{ display: "flex", gap: 4 }}>
                                     {[0, 0.2, 0.4].map((delay, i) => (
                                         <span key={i} style={{
-                                            width: 5, height: 5, borderRadius: "50%",
-                                            background: "#A78BFA", display: "inline-block",
+                                            width: 5,
+                                            height: 5,
+                                            borderRadius: "50%",
+                                            background: "#A78BFA",
+                                            display: "inline-block",
                                             animation: `dotPulse 1.4s ${delay}s ease-in-out infinite both`,
                                         }} />
                                     ))}
@@ -324,8 +367,12 @@ export function HeroSection() {
                                     </div>
                                     {b.pulse && (
                                         <span style={{
-                                            width: 8, height: 8, borderRadius: "50%",
-                                            background: "#10B981", flexShrink: 0, marginLeft: "auto",
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: "50%",
+                                            background: "#10B981",
+                                            flexShrink: 0,
+                                            marginLeft: "auto",
                                             animation: "pulseDot 1.5s ease-in-out infinite",
                                         }} />
                                     )}

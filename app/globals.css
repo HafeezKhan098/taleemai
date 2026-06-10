@@ -918,3 +918,115 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* ══════════════════════════════════════
+   MOBILE RESPONSIVE — Full Fix
+══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ── General spacing ── */
+  section,
+  main>div {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ── Navbar ── */
+  .navbar-links {
+    display: none !important;
+  }
+
+  /* ── Hero ── */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .hero-visual {
+    display: none !important;
+  }
+
+  .trust-row {
+    gap: 8px !important;
+  }
+
+  .trust-badge {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+  }
+
+  /* ── Stats ── */
+  .sb-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .sb-item:nth-child(2) {
+    border-right: none !important;
+  }
+
+  .sb-item:nth-child(1),
+  .sb-item:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  /* ── Features ── */
+  .fg {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Footer ── */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  /* ── Counselor Wizard ── */
+  .counselor-steps {
+    gap: 12px !important;
+  }
+
+  /* ── Degree detail grids ── */
+  .degree-salary-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .degree-scope-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .degree-info-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* ── Stats: single column on very small ── */
+  .sb-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* ── Footer: single column ── */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Motivational banner ── */
+  .banner-inner {
+    flex-direction: column !important;
+    text-align: left !important;
+  }
+
+  /* ── Buttons full width on small screens ── */
+  .mobile-full {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
