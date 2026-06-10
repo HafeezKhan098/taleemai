@@ -122,10 +122,9 @@ export function HeroSection() {
                             <span style={{ color: "#6B6B8F", fontSize: 16, fontWeight: 400 }}>
                                 Powered by AI for
                             </span>
-                            <TypingText
-                                words={TYPING_WORDS}
-                                style={{ color: "#A78BFA", fontSize: 16, fontWeight: 600 } as CSSProperties}
-                            />
+                            <span style={{ color: "#A78BFA", fontSize: 16, fontWeight: 600 }}>
+                                <TypingText words={TYPING_WORDS} />
+                            </span>
                         </div>
 
                         {/* Description */}
