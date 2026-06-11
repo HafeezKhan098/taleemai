@@ -1030,3 +1030,44 @@ body {
     justify-content: center !important;
   }
 }
+
+/* ── Report Page Mobile ── */
+@media (max-width: 600px) {
+
+  /* Prevent any horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  * {
+    max-width: 100%;
+  }
+
+  /* Scholarship card: stack on mobile */
+  .scholar-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .scholar-amount {
+    width: 100% !important;
+    min-width: unset !important;
+    text-align: left !important;
+  }
+
+  /* Results page padding */
+  .results-page {
+    padding: 16px !important;
+  }
+
+  /* Study abroad banner */
+  .study-abroad-banner {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+
+  /* Roadmap on mobile */
+  .roadmap-item {
+    padding-bottom: 20px !important;
+  }
+}

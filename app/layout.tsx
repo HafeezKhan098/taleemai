@@ -18,8 +18,8 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "TaleemAI — Your AI Career Counselor for Pakistan",
-  description: "Discover careers, scholarships, degrees, and online earning skills. AI-powered guidance for every Pakistani student — especially those from Balochistan.",
-  keywords: ["Pakistan scholarships", "career guidance Pakistan", "Balochistan students", "AI education", "HEC scholarships", "BBISE", "degree explorer Pakistan"],
+  description: "Discover careers, scholarships, degrees, and online earning skills. AI-powered guidance for every Pakistani student.",
+  keywords: ["Pakistan scholarships", "career guidance Pakistan", "Balochistan students", "AI education"],
   authors: [{ name: "TaleemAI" }],
   openGraph: {
     title: "TaleemAI — Your AI Career Counselor for Pakistan",
@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
