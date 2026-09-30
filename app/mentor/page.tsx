@@ -8,7 +8,7 @@ export default function Mentor(){
  const [profile,setProfile]=useState({education:'FSC',marks:'',district:'Pishin',age:'',goal:'Study / career guidance',language:'English'});
  const [messages,setMessages]=useState<Msg[]>([{role:'assistant',text:starter}]);
  const [input,setInput]=useState(''); const [loading,setLoading]=useState(false);
- const send=async(text=input)=>{if(!text.trim()||loading)return; const next=[...messages,{role:'user' as const,text:text.trim()}];setMessages(next);setInput('');setLoading(true);try{const r=await fetch('/api/mentor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({profile,history:next,message:text})});const d=await r.json();setMessages([...next,{role:'assistant',text:d.answer||'Please try again.'}]);}catch{setMessages([...next,{role:'assistant',text:'I could not connect right now. Please try again.'}]);}finally{setLoading(false)}};
+ const send=async(text=input)=>{if(!text.trim()||loading)return; const next=[...messages,{role:'user' as const,text:text.trim()}];setMessages(next);setInput('');setLoading(true);try{const r=await fetch('/api/mentor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({profile,history:next,message:text})});const d=await r.json().catch(()=>({})); if(!r.ok){ setMessages([...next,{role:'assistant',text:d.answer||'The AI service is not available right now.'}]); } else { setMessages([...next,{role:'assistant',text:d.answer||'Please try again.'}]); }}catch{setMessages([...next,{role:'assistant',text:'I could not connect right now. Please try again.'}]);}finally{setLoading(false)}};
  const quick=['What scholarships fit me?','What can I study after Matric?','Show BS abroad options','What documents should I prepare?'];
  return <><section className="page-hero"><div className="container"><span className="eyebrow"><Bot size={14}/> TaleemAI Mentor</span><h1>Ask questions like you would ask a real counselor.</h1><p>Chat naturally about scholarships, study after Matric, careers, universities, financial support and studying abroad. TaleemAI uses its verified dataset for specific facts and tells you when something needs fresh official verification.</p></div></section>
  <section className="section"><div className="container mentor-shell">
@@ -21,7 +21,7 @@ export default function Mentor(){
    <div className="quick-prompts">{quick.map(q=><button key={q} onClick={()=>send(q)}>{q}</button>)}</div>
    <div className="chat-messages">{messages.map((m,i)=><div key={i} className={'chat-msg '+m.role}><div className="msg-label">{m.role==='user'?'You':'TaleemAI'}</div><div className="msg-body">{m.text}</div></div>)}{loading&&<div className="chat-msg assistant"><div className="msg-label">TaleemAI</div><div className="msg-body typing">Thinking…</div></div>}</div>
    <div className="chat-input"><textarea value={input} onChange={e=>setInput(e.target.value)} onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}}} placeholder="Ask anything about your education…" rows={2}/><button className="btn btn-primary" onClick={()=>send()} disabled={loading||!input.trim()}><Send size={16}/> Send</button></div>
-   <div className="source-note">Last dataset verification: 29 September 2026 · Always open the official source before applying.</div>
+   <div className="source-note">Last dataset verification: 29 September 2026 · AI answers use the verified TaleemAI dataset. Always open the official source before applying.</div>
   </div>
  </div></section></>;
 }
