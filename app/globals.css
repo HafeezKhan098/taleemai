@@ -11,3 +11,41 @@
 
 /* TaleemAI final polish */
 .brand-logo{width:32px;height:32px;border-radius:9px;display:block}.footer-logo{display:flex;align-items:center;gap:9px;font-size:20px;font-weight:800;color:#fff}.footer-logo img{width:32px;height:32px}.rich-hero{position:relative;overflow:hidden}.rich-hero:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-120px;top:-130px;background:radial-gradient(circle,rgba(60,201,160,.18),transparent 70%);pointer-events:none}.hero-stats{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}.hero-stats>div{background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:14px;padding:12px 16px;min-width:120px}.hero-stats b,.hero-stats span{display:block}.hero-stats b{font-size:20px}.hero-stats span{font-size:11px;color:var(--muted);margin-top:3px}.premium-hero-card img{width:100%;max-width:360px;height:auto;margin-bottom:10px}.career-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.career-card h2{font-size:21px;margin:10px 0}.career-icon{font-size:30px;margin-bottom:10px}.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.test-card h2{font-size:19px;line-height:1.25}.test-source{border-top:1px solid var(--line);padding-top:12px;margin-top:14px;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:11px;color:var(--muted)}.test-source a{color:var(--brand);font-weight:800;display:flex;align-items:center;gap:5px}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.result-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;align-items:flex-start;gap:14px;color:var(--ink);transition:transform .2s ease,box-shadow .2s ease}.result-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(19,34,56,.08)}.result-icon{width:48px;height:48px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:22px;flex:none}.result-card span{font-size:10px;font-weight:800;color:var(--brand)}.result-card h3{margin:4px 0;font-size:17px}.result-card p{font-size:12px;line-height:1.55;color:var(--muted);margin:0}.result-card>svg{margin-left:auto;flex:none;color:var(--brand)}.skill-links{display:grid;gap:7px;margin-top:13px}.skill-links a{font-size:11px;color:var(--brand);display:flex;align-items:center;gap:5px}.photo-wrap{position:relative}.photo-wrap img{width:100%;height:230px;object-fit:cover;display:block}.photo-credit{position:absolute;left:10px;bottom:10px;background:rgba(13,29,43,.82);color:#fff;border-radius:999px;padding:6px 9px;font-size:9px;font-weight:800}.photo-credit.illustrative{background:rgba(122,91,25,.9)}.abroad-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;background:#fff;border:1px solid var(--line);padding:20px;border-radius:18px;margin-bottom:22px}.abroad-intro p{max-width:760px;color:var(--muted);line-height:1.6}.feature-highlight{min-height:210px}.feature-highlight>svg{color:var(--brand)}@media(max-width:1000px){.career-grid,.test-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:800px){.result-grid,.career-grid,.test-grid{grid-template-columns:1fr}.abroad-intro{flex-direction:column;align-items:flex-start}.premium-hero-card img{max-width:300px}}@media(max-width:600px){.brand-logo{width:30px;height:30px}.hero-stats>div{flex:1;min-width:0}.photo-wrap img{height:205px}.test-source{flex-direction:column;align-items:flex-start}.result-card{padding:15px}.premium-hero-card img{max-width:240px}}
+
+/* TaleemAI educational visual refinement — keeps the original identity */
+:root{--bg:#f5f8fb;--card:#ffffff;--ink:#17263a;--muted:#607083;--line:#dce5ed;--brand:#087f68;--brand2:#075f50;--blue:#1769aa;--soft:#e8f6f1;--gold:#c48a18}
+body{background:var(--bg);color:var(--ink)}
+.site-header{background:#ffffff;border-bottom:2px solid #dfe8ee;box-shadow:0 2px 12px rgba(23,38,58,.05)}
+.nav-wrap{height:70px}.nav-links a{color:#34465a;padding:8px 7px;border-radius:8px}.nav-links a:hover,.nav-links a[aria-current="page"]{background:#edf7f4;color:var(--brand)}
+.brand-mark,.icon-box,.step-num,.result-icon{background:#e8f6f1;color:var(--brand)}
+.hero{background:linear-gradient(180deg,#ffffff 0%,#f2f8fb 100%);border-bottom:1px solid #e0e8ee}.hero-card{background:#12344a;border:1px solid #1d4b63;box-shadow:0 18px 45px rgba(18,52,74,.13)}
+.page-hero{background:#eef6fa;border-bottom:1px solid #d7e2e9}.page-hero h1,.section-head h2{color:#15283c}.section{border-bottom:1px solid #e8eef2}.section.alt{background:#fff}
+.card,.mentor-panel,.table-wrap,.result-card,.abroad-intro{box-shadow:0 5px 18px rgba(25,48,68,.045);border-color:#dce5ed}.card:hover{border-color:#c7d9e2;box-shadow:0 8px 24px rgba(25,48,68,.07)}
+.feature-card{background:#fff}.feature-card span,.source-link,.skill-links a{color:var(--brand)}
+.filter{color:#405268}.filter.active,.filter-chip.active{background:#087f68;border-color:#087f68;color:#fff}
+.scholarship-tools select,.search-box,.question input,.question select,.question textarea{border-color:#d5e0e8;background:#fff;color:var(--ink)}
+.mini-block{background:#f4f8fa;border-color:#e3ebf0}.meta span{background:#f1f5f8;color:#536477}.verified-pill{background:#edf9f5;border-color:#c6e9dc;color:#126651}
+.deadline{background:#fff8e7;border-color:#ecd79e;color:#765719}.source-note{color:#68788a}
+.footer{background:#123247;border-top:4px solid #087f68}.banner{background:#123247;border:1px solid #234b61}.banner .eyebrow{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#b9eadb}
+.answer{background:#123247;border:1px solid #285066}.notice.success{background:#edf9f5}.notice{background:#fff9eb}
+/* mobile: make page changes unmistakable */
+@media(max-width:900px){
+ .site-header{box-shadow:0 3px 14px rgba(23,38,58,.08)}
+ .nav-links.open{top:70px;background:#f8fbfd;border:1px solid #d9e4eb;border-top:0;box-shadow:0 14px 24px rgba(20,45,65,.12);padding:12px}
+ .nav-links.open a{background:#fff;border:1px solid #e1e9ee;margin:3px 0;padding:12px 13px;border-radius:10px;color:#25384c}
+ .nav-links.open a:hover{background:#edf7f4;border-color:#bfe2d8;color:#087f68}
+ .nav-links.open .urdu-link{background:#eef7f5}
+ .mentor-btn{box-shadow:0 4px 12px rgba(8,127,104,.18)}
+ .page-hero{padding:44px 0 28px}.section{padding:52px 0}
+ .grid-3,.grid-4,.career-grid,.test-grid,.result-grid,.scholarship-grid{gap:13px}
+}
+@media(max-width:600px){
+ body{font-size:14px}.container{width:calc(100% - 24px)}
+ .hero{padding:48px 0 40px}.hero h1{font-size:39px;line-height:1.05}.hero p{font-size:16px;line-height:1.65}
+ .hero-actions .btn{width:100%}.hero-card{border-radius:18px;padding:20px}.premium-hero-card img{max-width:210px}
+ .section-head{display:block}.section-head h2{font-size:25px}.section-head p{font-size:13px}
+ .card{border-radius:14px;padding:17px}.feature-card{min-height:0}
+ .page-hero h1{font-size:32px;letter-spacing:-1px}.page-hero p{font-size:14px}
+ .search-box{min-width:0;width:100%}.scholarship-tools{display:grid;grid-template-columns:1fr}.scholarship-tools select{width:100%}
+ .result-card{min-height:0}.footer{padding-top:42px}
+}
