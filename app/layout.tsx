@@ -1,7 +1,77 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
-import Header from '@/components/Header';
+import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-export const metadata: Metadata = { metadataBase:new URL('https://taleemai.pk'), title:{default:'TaleemAI — Pakistan Education, Scholarships & Career Guidance',template:'%s | TaleemAI'}, description:'TaleemAI is a bilingual English and Urdu education platform for Pakistani students: Balochistan scholarships, BBISE results, college admissions, careers, entrance tests, skills and study abroad guidance.', keywords:['Balochistan scholarships','Pakistan scholarships','BBISE Quetta result','Matric result Balochistan','HSSC result BBISE','college admissions Balochistan','career guidance Pakistan','HEC scholarships','Directorate colleges Balochistan','MDCAT','USAT','LAT','study abroad Pakistan','TaleemAI'], icons:{icon:'/icon.svg',shortcut:'/icon.svg',apple:'/icon.svg'}, openGraph:{title:'TaleemAI — Pakistan Education, Scholarships & Career Guidance',description:'Scholarships, BBISE results, college admissions, careers, tests, skills and study abroad guidance for Pakistani students.',type:'website',siteName:'TaleemAI',images:['/taleemai-logo.svg']}, twitter:{card:'summary_large_image',title:'TaleemAI',description:'Bilingual education and opportunity guidance for Pakistani students.',images:['/taleemai-logo.svg']},robots:{index:true,follow:true}};
-export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Header/><main>{children}</main><Footer/><Analytics/></body></html>}
+
+export const metadata: Metadata = {
+    metadataBase: new URL('https://taleemai.pk'),
+
+    title: {
+        default: 'TaleemAI — Pakistan Education, Scholarships & Career Guidance',
+        template: '%s | TaleemAI',
+    },
+
+    description:
+        'TaleemAI is a bilingual English and Urdu education platform for Pakistani students: Balochistan scholarships, BBISE results, college admissions, careers, entrance tests, skills and study abroad guidance.',
+
+    keywords: [
+        'Balochistan scholarships',
+        'Pakistan scholarships',
+        'BBISE Quetta result',
+        'Matric result Balochistan',
+        'HSSC result BBISE',
+        'college admissions Balochistan',
+        'career guidance Pakistan',
+        'HEC scholarships',
+        'Directorate colleges Balochistan',
+        'MDCAT',
+        'USAT',
+        'LAT',
+        'study abroad Pakistan',
+        'TaleemAI',
+    ],
+
+    icons: {
+        icon: '/icon.svg',
+        shortcut: '/icon.svg',
+        apple: '/icon.svg',
+    },
+
+    openGraph: {
+        title: 'TaleemAI — Pakistan Education, Scholarships & Career Guidance',
+        description:
+            'Scholarships, BBISE results, college admissions, careers, entrance tests, skills and study abroad guidance for Pakistani students.',
+        type: 'website',
+        siteName: 'TaleemAI',
+        images: ['/taleemai-logo.svg'],
+    },
+
+    twitter: {
+        card: 'summary_large_image',
+        title: 'TaleemAI',
+        description:
+            'Bilingual education and opportunity guidance for Pakistani students.',
+        images: ['/taleemai-logo.svg'],
+    },
+};
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    return (
+        <html lang="en">
+            <body>
+                <Header />
+
+                <main>{children}</main>
+
+                <Footer />
+
+                <Analytics />
+            </body>
+        </html>
+    );
+}

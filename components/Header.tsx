@@ -1,146 +1,119 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import Link from 'next/link';
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, Bot } from 'lucide-react';
 
 const links = [
-    { href: "/", label: "Home" },
-    { href: "/scholarships", label: "Scholarships" },
-    { href: "/study-after-matric", label: "Study After Matric" },
-    { href: "/colleges", label: "Colleges" },
-    { href: "/careers", label: "Careers" },
-    { href: "/universities", label: "Universities" },
-    { href: "/abroad", label: "Study Abroad" },
-    { href: "/skills", label: "Skills" },
-    { href: "/balochistan", label: "Balochistan" },
-    { href: "/bbise", label: "BBISE" },
-    { href: "/mentor", label: "AI Mentor" },
-    { href: "/contact", label: "Contact" },
-    { href: "/privacy", label: "Privacy" },
+    ['Home', '/'],
+    ['Scholarships', '/scholarships'],
+    ['After Matric', '/study-after-matric'],
+    ['Colleges', '/colleges'],
+    ['Careers', '/careers'],
+    ['Universities', '/universities'],
+    ['Tests', '/tests'],
+    ['Abroad', '/abroad'],
+    ['Skills', '/skills'],
+    ['Balochistan', '/balochistan'],
+    ['BBISE', '/bbise'],
+    ['Contact', '/contact'],
+    ['Privacy', '/privacy'],
 ];
 
-export default function Header() {
+export function Header() {
+    const [open, setOpen] = useState(false);
     const pathname = usePathname();
-    const [mobileOpen, setMobileOpen] = useState(false);
 
-    const isUrdu = pathname === "/ur" || pathname.startsWith("/ur/");
-
-    const closeMobileMenu = () => {
-        setMobileOpen(false);
-    };
+    const close = () => setOpen(false);
 
     return (
         <header className="site-header">
-            <div className="header-inner">
-                {/* Logo / Brand */}
+            <div className="container nav-wrap">
+
+                {/* Logo */}
                 <Link
-                    href={isUrdu ? "/ur" : "/"}
+                    href="/"
                     className="brand"
-                    onClick={closeMobileMenu}
+                    onClick={close}
+                    aria-label="TaleemAI Home"
                 >
                     <img
-                        src="/taleemai-logo.svg"
+                        src="/icon.svg"
                         alt="TaleemAI"
                         className="brand-logo"
                     />
 
-                    <div className="brand-text">
-                        <span className="brand-name">TaleemAI</span>
-                        <span className="brand-tagline">
-                            Learn • Explore • Build Your Future
-                        </span>
-                    </div>
+                    <span>
+                        Taleem<span>AI</span>
+                    </span>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <nav className="desktop-nav" aria-label="Main navigation">
-                    {links.map((link) => {
+                {/* Navigation */}
+                <nav
+                    className={open ? 'nav-links open' : 'nav-links'}
+                    aria-label="Main navigation"
+                >
+                    {links.map(([label, href]) => {
                         const active =
-                            link.href === "/"
-                                ? pathname === "/"
-                                : pathname.startsWith(link.href);
+                            href === '/'
+                                ? pathname === '/'
+                                : pathname.startsWith(href);
 
                         return (
                             <Link
-                                key={link.href}
-                                href={link.href}
-                                className={`nav-link ${active ? "active" : ""}`}
+                                key={href}
+                                href={href}
+                                onClick={close}
+                                className={active ? 'active-nav' : ''}
                             >
-                                {link.label}
+                                {label}
                             </Link>
                         );
                     })}
 
-                    {/* Language Switch */}
-                    {isUrdu ? (
-                        <Link href="/" className="language-switch">
+                    {/* Urdu */}
+                    {pathname === '/ur' ? (
+                        <Link
+                            className="language-switch"
+                            href="/"
+                            onClick={close}
+                        >
                             English
                         </Link>
                     ) : (
-                        <Link href="/ur" className="language-switch">
+                        <Link
+                            className="urdu-link"
+                            href="/ur"
+                            onClick={close}
+                        >
                             اردو
                         </Link>
                     )}
                 </nav>
 
-                {/* Mobile Menu Button */}
-                <button
-                    type="button"
-                    className="mobile-menu-button"
-                    onClick={() => setMobileOpen((open) => !open)}
-                    aria-label={mobileOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={mobileOpen}
+                {/* AI Mentor */}
+                <Link
+                    className="mentor-btn"
+                    href="/mentor"
+                    onClick={close}
                 >
-                    {mobileOpen ? <X size={25} /> : <Menu size={25} />}
+                    <Bot size={17} />
+                    AI Mentor
+                </Link>
+
+                {/* Mobile menu */}
+                <button
+                    className="menu-btn"
+                    onClick={() => setOpen(!open)}
+                    aria-label={open ? 'Close menu' : 'Open menu'}
+                    aria-expanded={open}
+                    type="button"
+                >
+                    {open ? <X /> : <Menu />}
                 </button>
+
             </div>
-
-            {/* Mobile Navigation */}
-            {mobileOpen && (
-                <div className="mobile-nav">
-                    <nav aria-label="Mobile navigation">
-                        {links.map((link) => {
-                            const active =
-                                link.href === "/"
-                                    ? pathname === "/"
-                                    : pathname.startsWith(link.href);
-
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`mobile-nav-link ${active ? "active" : ""
-                                        }`}
-                                    onClick={closeMobileMenu}
-                                >
-                                    {link.label}
-                                </Link>
-                            );
-                        })}
-
-                        {/* Mobile Language Switch */}
-                        {isUrdu ? (
-                            <Link
-                                href="/"
-                                className="mobile-language-switch"
-                                onClick={closeMobileMenu}
-                            >
-                                English
-                            </Link>
-                        ) : (
-                            <Link
-                                href="/ur"
-                                className="mobile-language-switch"
-                                onClick={closeMobileMenu}
-                            >
-                                اردو
-                            </Link>
-                        )}
-                    </nav>
-                </div>
-            )}
         </header>
     );
 }
