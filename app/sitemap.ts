@@ -1,2 +1,28 @@
 import type { MetadataRoute } from 'next';
-export default function sitemap(): MetadataRoute.Sitemap { const base='https://taleemai-mu.vercel.app/'; const paths=['','/scholarships','/study-after-matric','/colleges','/careers','/universities','/tests','/abroad','/skills','/balochistan','/bbise','/mentor','/contact','/privacy','/ur']; return paths.map(p=>({url:base+p,lastModified:new Date('2026-09-30'),changeFrequency:'weekly',priority:p===''?1:.8})); }
+
+const baseUrl = 'https://taleemai-mu.vercel.app';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+    const routes = [
+        '/',
+        '/scholarships',
+        '/study-after-matric',
+        '/colleges',
+        '/careers',
+        '/universities',
+        '/tests',
+        '/abroad',
+        '/skills',
+        '/balochistan',
+        '/bbise',
+        '/mentor',
+        '/contact',
+        '/privacy',
+        '/ur',
+    ];
+
+    return routes.map((route) => ({
+        url: `${baseUrl}${route}`,
+        lastModified: new Date(),
+    }));
+}

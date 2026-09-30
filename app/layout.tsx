@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://taleemai.pk'),
+    metadataBase: new URL('https://taleemai-mu.vercel.app'),
 
     title: {
         default: 'TaleemAI — Pakistan Education, Scholarships & Career Guidance',
