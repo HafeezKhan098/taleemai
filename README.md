@@ -42,3 +42,20 @@ On Vercel, add the same variables in Project Settings → Environment Variables.
 
 ## Important
 Do not put `.env.local` or a Gemini API key in GitHub.
+
+
+## AI Mentor setup
+The Mentor uses the current `@google/genai` server SDK. Put `GEMINI_API_KEY` in `.env.local` locally and in Vercel Project Settings → Environment Variables. Keep the key server-side; never commit `.env.local`. The default model is `gemini-2.5-flash`, override with `GEMINI_MODEL` if needed.
+
+## College Explorer research basis
+The expanded College Explorer uses official Balochistan EMIS cadet/residential-college data, University of Balochistan affiliated-college data, BEEF policy/panel documents, official institution websites, and official federal/institution network pages. Current admissions, fees and seats must still be verified at the linked official source.
+
+## Final launch build additions — 30 Sep 2026
+- Expanded scholarship hub: HEC/BEEF, Directorate reserved-seat pathways, general after-admission financial-aid guidance, CSC China, Stipendium Hungaricum, Türkiye Scholarships, Erasmus Mundus, Commonwealth, Fulbright, Chevening, HEC Overseas, BEEF PhD and BEEF/Oxford.
+- Added Entrance Tests page covering Directorate Intermediate/BS reserved-seat tests, HEC USAT/LAT/HAT, MDCAT, NUMS MDCAT, KMU-CAT, ECAT, NUST NET, NTS NAT and FAST admission testing.
+- Added direct BBISE result links for SSC Part-I/II and HSSC Part-I/II.
+- Expanded Career Explorer to 30+ pathways grouped by Medical & Health, Computer & Technology, Engineering, Business & Economics, Arts & Social Sciences, and Science & Environment.
+- Expanded Skills page with DigiSkills and NAVTTC official learning resources.
+- College Explorer now uses institution photos where available and clearly labels illustrative fallback photos where a verified institution photo was not available.
+- Added SVG logo + icon, page metadata, Open Graph metadata, sitemap and robots route.
+- Preserved Vercel Analytics and the existing environment-variable approach. Keep `.env.local` local-only.

@@ -1,11 +1,14 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI } from '@google/genai';
-import { scholarships, studyAfterMatric, governmentResources, colleges, careers, skills, universities } from '@/lib/data';
+import { scholarships, studyAfterMatric, governmentResources, colleges, careers, skills, universities, entranceTests, bbiseResults, freeLearningResources } from '@/lib/data';
 
 const system = `You are TaleemAI Mentor, a careful bilingual education and career counselor for students in Balochistan and Pakistan.
 
 CORE JOB:
-- Have a natural, conversational chat, not a one-shot FAQ response.
+- Have a natural, conversational chat, not a one-shot FAQ response. Ask for missing facts before giving a personalized conclusion.
+- First identify the student stage, subjects, marks, district, budget and goal when relevant.
+- Give a short answer first, then a practical step-by-step plan.
+- For Urdu, use natural Urdu with common English education terms.
 - Use the student's profile and previous messages to personalize the answer.
 - Help with scholarships, study after Matric, college choice, careers, skills, universities and study abroad.
 - Reply in the student's requested language. For Urdu, use natural simple Urdu and keep common education terms in English where helpful.
@@ -19,6 +22,10 @@ TRUST RULES:
 6. Do not make up rankings. When students ask for the "best" college, explain the relevant differences (program, board, location, residential option, gender, etc.) instead of declaring a winner.
 7. If the student asks about a college, use the College Explorer dataset and mention the official source when useful.
 8. Give practical next steps. Usually end with 2–4 actions or a focused follow-up question.
+9. Compare careers by fit, route, tests and work areas; never declare one universally best.
+10. If the student has little/no budget, prioritize verified need-based, Balochistan, Directorate and free-government resources before paid options.
+11. For BBISE results, provide the direct official result category/link from the dataset.
+12. Distinguish university-specific tests from tests that are optional or accepted by some institutions.
 
 VERIFIED SCHOLARSHIPS:
 ${JSON.stringify(scholarships)}
@@ -40,6 +47,15 @@ ${JSON.stringify(skills)}
 
 UNIVERSITIES:
 ${JSON.stringify(universities)}
+
+ENTRANCE TESTS:
+${JSON.stringify(entranceTests)}
+
+BBISE RESULTS:
+${JSON.stringify(bbiseResults)}
+
+FREE LEARNING:
+${JSON.stringify(freeLearningResources)}
 `;
 
 function cleanHistory(history: unknown) {
@@ -85,13 +101,13 @@ export async function POST(req: Request) {
     const answer = result.text?.trim();
     if (!answer) throw new Error('Gemini returned an empty response.');
 
-    return NextResponse.json({ answer, verifiedAt: '29 September 2026', model });
+    return NextResponse.json({ answer, verifiedAt: '30 September 2026', model });
   } catch (error: any) {
     console.error('TaleemAI Mentor error:', error);
     const status = Number(error?.status) || 500;
     let answer = 'I could not connect to the AI right now. Please try again in a moment.';
     if (status === 401 || status === 403) answer = 'The Gemini API key was rejected. Check GEMINI_API_KEY in your local .env.local and Vercel Environment Variables, then redeploy.';
-    else if (status === 404) answer = 'The selected Gemini model is unavailable. Set GEMINI_MODEL to a currently supported model in your environment variables and try again.';
+    else if (status === 404) answer = 'The selected Gemini model is unavailable for this API project. Check the exact model available to your Gemini API key, then update GEMINI_MODEL in Vercel and redeploy.';
     else if (status === 429) answer = 'The AI service is temporarily rate-limited. Please wait a little and try again.';
     return NextResponse.json({ answer, code: 'GEMINI_REQUEST_FAILED' }, { status });
   }
