@@ -27,7 +27,7 @@ export default function Universities() {
       <div className="university-tabs">{tabs.map(([label,value])=><button key={value} className={tab===value?'active':''} onClick={()=>setTab(value)}>{label}</button>)}</div>
       <div className="grid-3">
         {shown.map(u=><article className="card university-card" key={u.name}>
-          <div className="university-photo-wrap">{u.image ? <img className="university-photo" src={u.image} alt={`${u.name} campus`} loading="lazy" onError={(e)=>{e.currentTarget.src='https://commons.wikimedia.org/wiki/Special:FilePath/Ziarat-Quetta%20Pakistan%20Landscape.jpg?width=900'}}/> : <div className="university-photo-placeholder"><GraduationCap size={38}/><span>Verified campus photo pending</span></div>}</div>
+          <div className="university-photo-wrap">{u.image ? <img className="university-photo" src={u.image} alt={`${u.name} official campus or source image`} loading="lazy" onError={(e)=>{e.currentTarget.src='/icon.svg';e.currentTarget.classList.add('photo-fallback')}}/> : <div className="university-photo-placeholder"><GraduationCap size={38}/><span>Verified campus photo pending</span></div>}</div>
           <div className="university-body"><span className="tag">{u.type}</span><h2>{u.name}</h2><p><b><MapPin size={13}/> {u.city}</b></p><p>{u.focus}</p><div className="card-actions"><a className="btn btn-secondary" href={u.source} target="_blank" rel="noreferrer">Official website <ExternalLink size={13}/></a></div><p className="image-credit">{u.credit}</p></div>
         </article>)}
       </div>

@@ -82,10 +82,10 @@ export default function Home() {
         <div className="home-college-strip">
           {[
             ['Government Postgraduate Science College Quetta','Public · Quetta','https://gpsc.edu.pk/assets/images/home/college-campus.webp','/colleges'],
-            ['Islamia Boys College Quetta','Private / Trust · Quetta','https://commons.wikimedia.org/wiki/Special:FilePath/Quetta-City.jpg?width=900','/colleges'],
-            ['Tameer-i-Nau Public College','Trust · Quetta','https://tameerinau.edu.pk/wp-content/uploads/elementor/thumbs/Ghazali-Campus-rsgqzk44qq3l3ieuuy0krupztmlghwf1t6xp5t1kuc.jpg','/colleges'],
-            ['Iqra Residential School & College','Residential · Quetta','https://irsc.edu.pk/wp-content/uploads/2026/09/ind2.jpg','/colleges'],
-          ].map(([name,type,image,href]) => <Link href={href} className="home-college-card" key={name}><img src={image} alt={`${name} campus`} loading="lazy"/><div><span>{type}</span><h3>{name}</h3><b>View admission guidance <ArrowRight size={13}/></b></div></Link>)}
+            ['Islamia Boys College Quetta','College · Quetta','','/colleges'],
+            ['Tameer-i-Nau Public College','Trust · Quetta','https://tameerinau.edu.pk/wp-content/uploads/elementor/thumbs/1779354147500-scaled-rolpct6m0m333vdfhd478ymmk05e9x189zcyrhr470.jpg','/colleges'],
+            ['Iqra Residential School & College','Residential · Quetta','https://irsc.edu.pk/wp-content/uploads/2025/11/day1-sports-300x300.jpg','/colleges'],
+          ].map(([name,type,image,href]) => <Link href={href} className="home-college-card" key={name}>{image ? <img src={image} alt={`${name} official source photo`} loading="lazy"/> : <div className="home-college-photo-placeholder"><Building2 size={34}/><span>Official photo not verified yet</span></div>}<div><span>{type}</span><h3>{name}</h3><b>View admission guidance <ArrowRight size={13}/></b></div></Link>)}
         </div>
       </div>
     </section>

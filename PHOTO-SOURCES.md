@@ -1,23 +1,23 @@
-# TaleemAI photo sources
+# TaleemAI V5 — Photo Source Notes
 
-This version uses real institutional or openly licensed reference photos where a verified image URL was available. Do not remove attribution when a Creative Commons image requires it.
+Only use an image as a campus/source photo when its origin was verified.
 
-## Wikimedia Commons
-- Ziarat-Quetta Pakistan Landscape — https://commons.wikimedia.org/wiki/File:Ziarat-Quetta_Pakistan_Landscape.jpg — CC BY-SA 4.0, author Abbas Baqri.
-- University of Balochistan, Quetta — https://commons.wikimedia.org/wiki/Category:University_of_Balochistan,_Quetta — individual file attribution is shown in the linked Commons file page.
-- BUITEMS cricket ground — https://commons.wikimedia.org/wiki/File:BUITEMS%27_cricket_ground_(6878367418).jpg — CC BY 2.0, author Uzair Saeed.
-- NUST — https://commons.wikimedia.org/wiki/File:Nust.jpg — CC BY-SA 3.0, author M. Imran Majeed.
-- FAST Islamabad — https://commons.wikimedia.org/wiki/File:FAST_Islamabad.jpg — CC BY-SA 4.0, author Pakieditor.
-- Punjab University Lahore — https://commons.wikimedia.org/wiki/File:Punjab_University,_Lahore.jpg — CC BY-SA 3.0, author Khalid Mahmood.
+## Verified official-source images
 
-## Official institutional sources
-- Government Postgraduate Science College Quetta — https://gpsc.edu.pk/
-- Tameer-i-Nau Trust Balochistan — https://tameerinau.edu.pk/
-- Iqra Residential School & College — https://irsc.edu.pk/
-- Cadet College Pishin — https://www.ccpn.edu.pk/
-- Bahauddin Zakariya University — https://bzu.edu.pk/
-- Balochistan UET Khuzdar — https://www.buetk.edu.pk/
-- University of Turbat — https://www.uot.edu.pk/
-- Sardar Bahadur Khan Women’s University — https://sbkwu.edu.pk/
+- Government Postgraduate Science College Quetta: https://gpsc.edu.pk/assets/images/home/college-campus.webp
+- Tameer-i-Nau Ghazali Campus: https://tameerinau.edu.pk/wp-content/uploads/elementor/thumbs/1779354147500-scaled-rolpct6m0m333vdfhd478ymmk05e9x189zcyrhr470.jpg
+- Iqra Residential School & College: https://irsc.edu.pk/wp-content/uploads/2025/11/day1-sports-300x300.jpg (official student-life/event photo; not labelled as a campus exterior)
+- Cadet College Pishin: https://www.ccpn.edu.pk/wp-content/uploads/2024/08/slider1.jpg
+- Bahauddin Zakariya University: https://bzu.edu.pk/img/slider/new%20%282%29.jpg
 
-If an institution's image cannot be verified, TaleemAI intentionally shows a photo-pending placeholder instead of presenting an unrelated campus as the institution.
+## Verified openly licensed / Wikimedia sources
+
+- University of Balochistan: Wikimedia Commons
+- BUITEMS: Wikimedia Commons
+- NUST: Wikimedia Commons
+- FAST Islamabad: Wikimedia Commons
+- University of the Punjab: Wikimedia Commons
+
+## Intentionally left as placeholders
+
+No generic Quetta or Balochistan landscape is used as a substitute for a college/university campus. When an official campus image could not be verified, TaleemAI shows a clear "Verified campus photo pending" placeholder and links to the institution's official website.

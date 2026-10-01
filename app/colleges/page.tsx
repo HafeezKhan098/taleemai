@@ -64,7 +64,7 @@ export default function Colleges() {
           {shown.map((c, i) => {
             const photo = c.image;
             return <article className={`college-card ${featured.includes(c.id) ? 'featured-college' : ''}`} key={c.id}>
-              {photo ? <div className="photo-wrap"><img src={photo} alt={`${c.name} campus`} loading={i < 4 ? 'eager' : 'lazy'} /><span className="photo-credit">Real campus / source photo</span></div> : <div className="college-photo-placeholder"><GraduationCap size={36}/><span>Campus photo not yet verified</span></div>}
+              {photo ? <div className="photo-wrap"><img src={photo} alt={`${c.name} campus`} loading={i < 4 ? 'eager' : 'lazy'} /><span className="photo-credit">Official/source photo</span></div> : <div className="college-photo-placeholder"><GraduationCap size={36}/><span>Campus photo not yet verified</span></div>}
               <div className="college-body">
                 <div className="card-top"><span className="tag">{c.type}</span><span className="verified-pill"><ShieldCheck size={12}/> Source checked</span></div>
                 <h2>{c.name}</h2>

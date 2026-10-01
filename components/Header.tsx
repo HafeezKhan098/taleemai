@@ -25,6 +25,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [dark, setDark] = useState(false);
   const pathname = usePathname();
+
   const close = () => setOpen(false);
 
   useEffect(() => {
@@ -62,17 +63,34 @@ export function Header() {
           ) : (
             <Link className="urdu-link" href="/ur" onClick={close}>اردو</Link>
           )}
+          <Link className="mobile-mentor-link" href="/mentor" onClick={close}>
+            <Bot size={16} /> AI Mentor
+          </Link>
         </nav>
 
         <div className="header-actions">
-          <button className="theme-toggle" onClick={toggleTheme} type="button" aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'} title={dark ? 'Light mode' : 'Dark mode'}>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            type="button"
+            aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={dark ? 'Light mode' : 'Dark mode'}
+          >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
-          <Link className="mentor-btn" href="/mentor" onClick={close}><Bot size={17}/> AI Mentor</Link>
+          <Link className="mentor-btn" href="/mentor" onClick={close}>
+            <Bot size={17} /> AI Mentor
+          </Link>
         </div>
 
-        <button className="menu-btn" onClick={() => setOpen(!open)} aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} type="button">
-          {open ? <X/> : <Menu/>}
+        <button
+          className="menu-btn"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          type="button"
+        >
+          {open ? <X /> : <Menu />}
         </button>
       </div>
     </header>
