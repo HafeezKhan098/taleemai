@@ -1,2 +1,38 @@
-import {universities} from '@/lib/data';import {ExternalLink,GraduationCap,MapPin,ShieldCheck} from 'lucide-react';
-export default function Universities(){return <><section className="page-hero rich-hero"><div className="container"><span className="eyebrow">🏫 University Explorer · Pakistan</span><h1>Universities across Pakistan, with admission routes and current ranking context.</h1><p>Start with the field you want to study, then compare the university, campus, admission test, eligibility, fees and financial-aid options. QS figures below are labeled by ranking type and year so students do not confuse an overall world ranking with a subject ranking.</p></div></section><section className="section"><div className="container"><div className="notice success"><ShieldCheck size={15}/> <b>Ranking note:</b> QS is one external ranking system, not an admission or quality guarantee. Always check the university and HEC/PEC/PMDC accreditation information for the exact program.</div><div className="uni-grid">{universities.map((u,i)=><article className="university-card card" key={u.name}><div className={u.image?'uni-photo-wrap':'uni-photo-wrap uni-photo-placeholder'}>{u.image?<><img src={u.image} alt={`${u.name} campus`} loading={i<6?'eager':'lazy'}/><span className="photo-credit">{u.imageCredit}</span></>:<div className="education-photo"><div className="education-photo-cap">🎓</div><strong>University campus</strong><small>No verified campus photo added</small></div>}</div><div className="university-body"><div className="card-top"><span className="tag">{u.type}</span><span className="verified-pill"><ShieldCheck size={12}/> Source checked · 30 Sep 2026</span></div><h2>{u.name}</h2><p className="muted"><MapPin size={14}/> {u.city}</p><p>{u.focus}</p><div className="rank-box"><div><small>QS context</small><strong>{u.rank}</strong></div><span>{u.rankType}</span></div><div className="uni-admission"><div><b>Admission route</b><p>{u.admission}</p></div><a className="btn btn-primary" href={u.admissionSource} target="_blank" rel="noreferrer">Admissions <ExternalLink size={13}/></a></div><div className="card-actions"><a className="btn btn-secondary" href={u.source} target="_blank" rel="noreferrer">Official website <ExternalLink size={13}/></a>{u.imageSource&&<a className="btn btn-secondary" href={u.imageSource} target="_blank" rel="noreferrer">Photo source <ExternalLink size={13}/></a>}</div></div></article>)}</div></div></section><section className="section alt"><div className="container"><div className="two-col"><div className="card"><GraduationCap size={25}/><h2>How to compare a university</h2><ul className="checklist"><li>Check the exact BS/degree you want, not just the university name.</li><li>Check HEC recognition and the relevant professional council where applicable.</li><li>Check entry test, merit calculation and application deadline.</li><li>Check total cost, hostel/transport and financial aid.</li></ul></div><div className="card"><h2>For Balochistan students</h2><p>Use the Directorate reserved-seat route, HEC scholarships and university financial-aid pages alongside normal admissions where eligible.</p><a className="btn btn-primary full" href="/scholarships">Explore funding routes</a></div></div></div></section></>}
+'use client';
+
+import { useMemo, useState } from 'react';
+import { ExternalLink, MapPin, Search, GraduationCap } from 'lucide-react';
+import { universities } from '@/lib/data';
+
+const tabs = [
+  ['Balochistan Universities','balochistan'],
+  ['Pakistan Universities','pakistan'],
+  ['All','all'],
+] as const;
+
+export default function Universities() {
+  const [tab, setTab] = useState('balochistan');
+  const [q, setQ] = useState('');
+  const shown = useMemo(() => universities.filter(u => {
+    const inTab = tab === 'all' || (tab === 'balochistan' ? u.type.includes('Balochistan') : !u.type.includes('Balochistan'));
+    const hay = `${u.name} ${u.city} ${u.type} ${u.focus}`.toLowerCase();
+    return inTab && hay.includes(q.toLowerCase());
+  }), [tab, q]);
+
+  return <>
+    <section className="page-hero rich-hero"><div className="container"><span className="eyebrow">🎓 University Explorer · Balochistan → Pakistan</span><h1>Start with the university. Then check the exact degree.</h1><p>Explore major universities in Balochistan first, then selected universities across Pakistan. This is a discovery guide, not a ranking — program eligibility, accreditation, fees and admissions must be checked with the university.</p></div></section>
+    <section className="section"><div className="container">
+      <div className="university-explorer-head"><div><span className="section-kicker">Explore institutions</span><h2>Universities students commonly need to compare</h2></div></div>
+      <div className="search-box wide"><Search size={17}/><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Search university, city or field…"/></div>
+      <div className="university-tabs">{tabs.map(([label,value])=><button key={value} className={tab===value?'active':''} onClick={()=>setTab(value)}>{label}</button>)}</div>
+      <div className="grid-3">
+        {shown.map(u=><article className="card university-card" key={u.name}>
+          <div className="university-photo-wrap">{u.image ? <img className="university-photo" src={u.image} alt={`${u.name} campus`} loading="lazy" onError={(e)=>{e.currentTarget.src='https://commons.wikimedia.org/wiki/Special:FilePath/Ziarat-Quetta%20Pakistan%20Landscape.jpg?width=900'}}/> : <div className="university-photo-placeholder"><GraduationCap size={38}/><span>Verified campus photo pending</span></div>}</div>
+          <div className="university-body"><span className="tag">{u.type}</span><h2>{u.name}</h2><p><b><MapPin size={13}/> {u.city}</b></p><p>{u.focus}</p><div className="card-actions"><a className="btn btn-secondary" href={u.source} target="_blank" rel="noreferrer">Official website <ExternalLink size={13}/></a></div><p className="image-credit">{u.credit}</p></div>
+        </article>)}
+      </div>
+      {!shown.length && <div className="empty-state"><GraduationCap size={28}/><h3>No university found</h3><p>Try a different name or city.</p></div>}
+      <div className="notice" style={{marginTop:22}}>TaleemAI does not label one university as universally “best”. Compare the exact program, accreditation, entry test, tuition, hostel, scholarships, distance and career fit for your own situation.</div>
+    </div></section>
+  </>;
+}

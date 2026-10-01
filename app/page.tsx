@@ -1,2 +1,134 @@
-import Link from 'next/link';import {ArrowRight,Bot,GraduationCap,ShieldCheck,Sparkles,FileText,TestTube2} from 'lucide-react';import {scholarships,careers,skills} from '@/lib/data';import {ScholarshipCard} from '@/components/ScholarshipCard';
-export default function Home(){return <><section className="hero"><div className="container hero-grid"><div><span className="eyebrow"><Sparkles size={14}/> Balochistan → Pakistan → World</span><h1>Your marks.<br/><em>Your background.</em><br/>Your next step.</h1><p>TaleemAI brings scholarships, BBISE results, college admissions, careers, entrance tests, free skills and study-abroad opportunities into one bilingual English + Urdu platform.</p><div className="hero-actions"><Link className="btn btn-primary" href="/mentor"><Bot size={17}/> Ask TaleemAI</Link><Link className="btn btn-secondary" href="/scholarships"><GraduationCap size={17}/> Find scholarships</Link></div><div className="hero-note">Free student guidance · Official sources linked · Balochistan-first</div></div><div className="hero-card premium-hero-card"><img src="/taleemai-logo.svg" alt="TaleemAI education platform"/><h3>One question can become a roadmap.</h3><p>“I have 78% and limited money. What can I do after FSc?”</p><div className="match"><strong>01 · Match stage</strong><small>Education, marks, district, age and goal.</small></div><div className="match"><strong>02 · Check verified routes</strong><small>Scholarships, admissions and tests.</small></div><div className="match"><strong>03 · Build a backup</strong><small>Free skills + financial aid + next intake.</small></div></div></div></section><section className="section"><div className="container"><div className="section-head"><div><h2>What do you need today?</h2><p>Search by your problem, not by a complicated scholarship name.</p></div></div><div className="grid-4">{[['🎓','Scholarships','Find Balochistan, Pakistan and abroad funding.','/scholarships'],['📝','BBISE Results','SSC and HSSC result direct links.','/bbise'],['🏫','Colleges','Compare government, private, cadet and BRC options.','/colleges'],['🧭','30+ Careers','Explore medical, computing, engineering, arts and more.','/careers'],['🧪','Entrance Tests','MDCAT, NUMS, USAT, LAT, ECAT, NET, NAT and Directorate.','/tests'],['🎒','After Matric','FSc, ICS, FA, I.Com, DAE and TVET.','/study-after-matric'],['🌍','Study Abroad','BS, Masters and PhD scholarship routes.','/abroad'],['💻','Free Skills','DigiSkills, NAVTTC and practical skills.','/skills']].map(([i,t,d,h])=><Link href={h} className="card feature-card" key={h}><div className="icon-box">{i}</div><h3>{t}</h3><p>{d}</p><span>Explore <ArrowRight size={14}/></span></Link>)}</div></div></section><section className="section alt"><div className="container"><div className="section-head"><div><h2>Scholarship routes students should know</h2><p>We separate apply-now, next-call and after-admission/institution-based routes.</p></div><Link className="btn btn-secondary" href="/scholarships">View all</Link></div><div className="grid-3">{scholarships.slice(0,3).map(s=><ScholarshipCard key={s.id} s={s}/>)}</div></div></section><section className="section"><div className="container"><div className="two-col"><div className="card feature-highlight"><TestTube2 size={25}/><h2>Don't miss the test.</h2><p>Directorate tests, HEC USAT/LAT/HAT, MDCAT, NUMS, KMU-CAT, ECAT, NET and NAT are organized in one place.</p><Link className="source-link" href="/tests">Open Entrance Tests <ArrowRight size={13}/></Link></div><div className="card feature-highlight"><FileText size={25}/><h2>Need your BBISE result?</h2><p>Go directly to SSC Part-I/II and HSSC Part-I/II official result pages.</p><Link className="source-link" href="/bbise">Open BBISE Results <ArrowRight size={13}/></Link></div></div></div></section><section className="section alt"><div className="container"><div className="article-card"><span className="eyebrow">📘 Student guide</span><h2>What TaleemAI helps you do</h2><p>TaleemAI is a bilingual education and opportunity guide for students in Balochistan and across Pakistan. Instead of making students search dozens of unrelated pages, it connects the most common student questions — <b>what to study after Matric, which test is needed, where to apply, how to find funding, which careers match a subject group, and how to explore study abroad</b> — into one simple roadmap.</p><div className="home-link-grid">{[['Scholarships','Balochistan, Pakistan and abroad funding','/scholarships'],['After Matric','FSc, ICS, FA, I.Com, DAE and TVET routes','/study-after-matric'],['Colleges','Balochistan public, private, cadet and residential options','/colleges'],['Universities','Pakistan-wide university and admission explorer','/universities'],['Careers','Medical, computing, engineering, business, arts and sciences','/careers'],['Tests','Directorate, MDCAT, NUMS, USAT, LAT, ECAT, NET, NAT and more','/tests'],['BBISE','SSC and HSSC result and services links','/bbise'],['Abroad','BS, Masters and PhD opportunities','/abroad'],['Skills','Free DigiSkills and NAVTTC learning routes','/skills'],['AI Mentor','Personalized guidance from your student profile','/mentor']].map(([t,d,h])=><Link href={h} className="home-link" key={h}><b>{t}</b><span>{d}</span><ArrowRight size={14}/></Link>)}</div></div></div></section><section className="section"><div className="container"><div className="banner"><div><span className="eyebrow"><ShieldCheck size={14}/> Verified-source approach</span><h2>Simple explanation. Official source.</h2><p>Each major opportunity points students to the official source and explains what still needs verification.</p></div><Link className="btn btn-primary" href="/mentor">Talk to AI Mentor <Bot size={15}/></Link></div></div></section><section className="section alt"><div className="container"><div className="grid-3">{careers.slice(0,3).map(c=><div className="card" key={c.name}><div className="icon-box">{c.icon}</div><span className="tag">{c.field}</span><h3>{c.name}</h3><p>{c.fit}</p><p><b>After Intermediate:</b> {c.after}</p></div>)}{skills.slice(0,3).map(x=><div className="card" key={x.name}><div className="icon-box">💡</div><span className="tag">{x.level}</span><h3>{x.name}</h3><p>{x.outcome}</p></div>)}</div></div></section></> }
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight, Bot, GraduationCap, ShieldCheck, Sparkles, FileText, Search, Building2, BookOpenCheck, BrainCircuit, MapPinned, Landmark } from 'lucide-react';
+import { scholarships, careers, skills, boardResources } from '@/lib/data';
+import { ScholarshipCard } from '@/components/ScholarshipCard';
+
+export const metadata: Metadata = {
+  title: 'Pakistan Education, Scholarships & Career Guidance | Balochistan Students',
+  description: 'TaleemAI is a free bilingual education platform for Pakistani students, especially Balochistan: scholarships, BBISE and board results, colleges, careers, tests, skills and study abroad guidance.',
+  keywords: ['Balochistan scholarships', 'Pakistan scholarships', 'Balochistan students', 'career counseling Pakistan', 'BBISE result', 'Federal Board result', 'colleges in Balochistan', 'universities in Balochistan', 'study abroad scholarships Pakistan', 'education guidance Pakistan'],
+};
+
+const quickCards = [
+  { icon: <BrainCircuit />, title: 'Ask Career Counseling AI', text: 'Get practical guidance based on your marks, interests, budget and goals.', href: '/mentor', tone: 'violet' },
+  { icon: <GraduationCap />, title: 'Local / Study Abroad Scholarships', text: 'Explore BEEF, HEC, Pakistan and international scholarship routes.', href: '/scholarships', tone: 'mint' },
+  { icon: <FileText />, title: 'BBISE & Board Portals', text: 'Direct result links and official board resources, including Federal Board.', href: '/bbise', tone: 'gold' },
+  { icon: <Building2 />, title: 'Colleges & Universities', text: 'Explore selected colleges in Balochistan and universities across Pakistan.', href: '/colleges', tone: 'blue' },
+  { icon: <BookOpenCheck />, title: 'Tests & Exams', text: 'MDCAT, NUMS, USAT, LAT, ECAT, NET, NAT and Directorate routes.', href: '/tests', tone: 'rose' },
+  { icon: <Sparkles />, title: 'Skills Learning', text: 'Free and practical learning routes from DigiSkills, NAVTTC and more.', href: '/skills', tone: 'purple' },
+  { icon: <MapPinned />, title: 'Balochistan Info', text: 'Education pathways, top colleges and provincial resources.', href: '/balochistan', tone: 'teal' },
+];
+
+const faqs = [
+  ['What is TaleemAI?', 'TaleemAI is a free education and career guidance platform for Pakistani students, built Balochistan-first. It brings scholarships, colleges, tests, skills, board resources and study-abroad guidance together in one place.'],
+  ['Can Balochistan students find scholarships here?', 'Yes. TaleemAI highlights Balochistan-specific routes such as BEEF, HEC Balochistan opportunities, Directorate pathways and selected international opportunities, with links to official sources.'],
+  ['Can I check my BBISE result from TaleemAI?', 'Yes. The BBISE section provides direct links to official SSC and HSSC result portals and board services.'],
+  ['Is TaleemAI free?', 'Yes. Students can use the education resources and AI Mentor without a paid membership. Always verify application fees or institutional charges on the official source.'],
+];
+
+export default function Home() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        name: 'TaleemAI',
+        url: 'https://taleemai-mu.vercel.app',
+        description: 'Free bilingual education, scholarship and career guidance for Pakistani students, especially Balochistan.',
+        areaServed: 'Pakistan',
+        educationalUse: 'Education and career guidance',
+      },
+      {
+        '@type': 'Article',
+        headline: 'Education, Scholarships and Career Guidance for Students in Balochistan and Pakistan',
+        description: 'A practical guide to scholarships, colleges, board resources, entrance tests and career planning for Pakistani students.',
+        author: { '@type': 'Organization', name: 'TaleemAI' },
+        publisher: { '@type': 'Organization', name: 'TaleemAI' },
+        mainEntityOfPage: 'https://taleemai-mu.vercel.app/',
+        inLanguage: 'en',
+      },
+    ],
+  };
+
+  return <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+    <section className="home-hero-cinematic">
+      <div className="home-hero-overlay" />
+      <div className="container home-hero-content">
+        <div className="hero-copy">
+          <span className="eyebrow hero-eyebrow"><Sparkles size={14}/> Pakistan's Future · Balochistan First</span>
+          <h1>Your Education.<br/><span>Our Mission.</span></h1>
+          <p>TaleemAI is a free education platform for Pakistani students — especially from Balochistan — helping you find scholarships, colleges, careers, tests, skills and study-abroad opportunities without getting lost in scattered information.</p>
+          <div className="home-search"><Search size={18}/><input aria-label="Search education resources" placeholder="Search scholarships, colleges, careers, tests, skills and more…" /><Link href="/scholarships" aria-label="Explore education resources"><ArrowRight /></Link></div>
+          <div className="home-tags"><span>Balochistan</span><span>Scholarships</span><span>Colleges</span><span>Career Guidance</span><span>Study Abroad</span><span>100% Free</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section className="section quick-section">
+      <div className="container">
+        <div className="section-head"><div><span className="section-kicker">Quick access</span><h2>Find what you need, without the confusion.</h2><p>Simple starting points for the questions students ask every day.</p></div><Link className="text-link" href="/mentor">Ask TaleemAI <ArrowRight size={14}/></Link></div>
+        <div className="quick-card-grid">
+          {quickCards.map(c => <Link href={c.href} key={c.href} className={`quick-card ${c.tone}`}><div className="quick-icon">{c.icon}</div><div><h3>{c.title}</h3><p>{c.text}</p></div><span className="quick-arrow"><ArrowRight size={16}/></span></Link>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section colleges-preview-section">
+      <div className="container">
+        <div className="section-head"><div><span className="section-kicker">Balochistan education</span><h2>Top Colleges in Balochistan</h2><p>Start with institutions students commonly need to compare — not a random directory.</p></div><Link className="btn btn-secondary" href="/colleges">Explore colleges <ArrowRight size={14}/></Link></div>
+        <div className="home-college-strip">
+          {[
+            ['Government Postgraduate Science College Quetta','Public · Quetta','https://gpsc.edu.pk/assets/images/home/college-campus.webp','/colleges'],
+            ['Islamia Boys College Quetta','Private / Trust · Quetta','https://commons.wikimedia.org/wiki/Special:FilePath/Quetta-City.jpg?width=900','/colleges'],
+            ['Tameer-i-Nau Public College','Trust · Quetta','https://tameerinau.edu.pk/wp-content/uploads/elementor/thumbs/Ghazali-Campus-rsgqzk44qq3l3ieuuy0krupztmlghwf1t6xp5t1kuc.jpg','/colleges'],
+            ['Iqra Residential School & College','Residential · Quetta','https://irsc.edu.pk/wp-content/uploads/2026/09/ind2.jpg','/colleges'],
+          ].map(([name,type,image,href]) => <Link href={href} className="home-college-card" key={name}><img src={image} alt={`${name} campus`} loading="lazy"/><div><span>{type}</span><h3>{name}</h3><b>View admission guidance <ArrowRight size={13}/></b></div></Link>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section section-alt">
+      <div className="container">
+        <div className="section-head"><div><span className="section-kicker">Boards & results</span><h2>Find your board, then go to the official source.</h2><p>BBISE is the Balochistan focus, but TaleemAI also points students toward Federal and other major board resources.</p></div><Link className="btn btn-secondary" href="/bbise">Open BBISE <ArrowRight size={14}/></Link></div>
+        <div className="board-grid">{boardResources.slice(0,6).map(b=><a className="board-card" href={b.url} target="_blank" rel="noreferrer" key={b.name}><Landmark size={21}/><div><h3>{b.name}</h3><p>{b.desc}</p><span>Official portal <ArrowRight size={13}/></span></div></a>)}</div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container">
+        <div className="section-head"><div><span className="section-kicker">Scholarship guide</span><h2>Opportunities worth checking</h2><p>We explain who an opportunity is for and send you to the official source before you apply.</p></div><Link className="btn btn-secondary" href="/scholarships">View scholarships</Link></div>
+        <div className="grid-3">{scholarships.slice(0,3).map(s=><ScholarshipCard key={s.id} s={s}/>)}</div>
+      </div>
+    </section>
+
+    <section className="section section-alt">
+      <div className="container mentor-home-banner">
+        <div><span className="section-kicker">Need a personal answer?</span><h2>Ask TaleemAI about your own situation.</h2><p>Tell it your class, marks, city, subjects, budget and goal. It can help you turn a confusing choice into practical next steps.</p><div className="home-mini-points"><span>✓ Natural conversation</span><span>✓ English + Urdu</span><span>✓ Official links</span><span>✓ No paid membership</span></div></div>
+        <Link className="btn btn-primary" href="/mentor"><Bot size={17}/> Open AI Mentor</Link>
+      </div>
+    </section>
+
+    <section className="section seo-article">
+      <div className="container article-card">
+        <span className="section-kicker">TaleemAI Education Guide</span>
+        <h2>Education, Scholarships and Career Guidance for Students in Balochistan and Pakistan</h2>
+        <p>Choosing what to study after Matric or Intermediate can be difficult when scholarship notices, college admissions, board results and entrance-test information are spread across different websites. TaleemAI brings these starting points together in simple language so a student can understand the route first and then open the official source for the final details.</p>
+        <h3>Scholarships for Balochistan students</h3>
+        <p>Students from Balochistan may need to check provincial opportunities such as BEEF, Higher Education Commission schemes, Directorate pathways and selected international scholarships. Eligibility depends on the individual scheme, so TaleemAI explains the route but keeps the official application source as the final authority.</p>
+        <h3>Colleges and universities after Matric and Intermediate</h3>
+        <p>After Matric, students can compare FSc, ICS, FA, I.Com, DAE and technical pathways. After Intermediate, they can explore universities in Balochistan such as University of Balochistan, BUITEMS and BUET Khuzdar, as well as universities elsewhere in Pakistan such as NUST, FAST and Punjab University. The right choice depends on the student's subjects, marks, budget, location and intended degree.</p>
+        <h3>BBISE, Federal Board and other board information</h3>
+        <p>Board information matters for results, certificates, admissions and applications. TaleemAI provides direct official links for BBISE and selected national board resources so students can reach the original portal instead of relying on copied result pages.</p>
+        <h3>Career guidance that starts with the student</h3>
+        <p>A career choice should not be based only on what sounds popular. Students can use TaleemAI to compare medical, computing, engineering, business, social sciences, education, creative and technical pathways, then check the subjects, tests, degree route, cost and skills required for each.</p>
+        <h3>Frequently asked questions</h3>
+        <div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div>
+      </div>
+    </section>
+
+    <section className="section"><div className="container"><div className="banner"><div><span className="eyebrow"><ShieldCheck size={14}/> Built around official sources</span><h2>Simple guidance. Verify before you apply.</h2><p>TaleemAI is a starting point for students — deadlines, fees, seats and eligibility can change, so always check the linked official source.</p></div><Link className="btn btn-primary" href="/contact">Suggest an update <ArrowRight size={14}/></Link></div></div></section>
+  </>;
+}

@@ -1,13 +1,8 @@
 import type { MetadataRoute } from 'next';
 
-const baseUrl = 'https://taleemai-mu.vercel.app';
-
 export default function robots(): MetadataRoute.Robots {
-    return {
-        rules: {
-            userAgent: '*',
-            allow: '/',
-        },
-        sitemap: `${baseUrl}/sitemap.xml`,
-    };
+  return {
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: 'https://taleemai-mu.vercel.app/sitemap.xml',
+  };
 }
