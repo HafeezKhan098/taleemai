@@ -1,0 +1,1 @@
+import Link from 'next/link';export default function NotFound(){return <section className="page-hero"><div className="container"><span className="eyebrow">404</span><h1>That page is not ready yet.</h1><p>Use the main guides while we expand TaleemAI.</p><Link className="btn btn-primary" href="/">Back home</Link></div></section>}
