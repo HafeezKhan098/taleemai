@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Bot, GraduationCap, ShieldCheck, Sparkles, FileText, Search, Building2, BookOpenCheck, BrainCircuit, MapPinned, Landmark } from 'lucide-react';
+import { ArrowRight, Bot, GraduationCap, ShieldCheck, Sparkles, FileText, Search, Building2, BookOpenCheck, BrainCircuit, Landmark, ExternalLink, Globe2 } from 'lucide-react';
 import { scholarships, careers, skills, boardResources } from '@/lib/data';
 import { ScholarshipCard } from '@/components/ScholarshipCard';
 
@@ -17,7 +17,7 @@ const quickCards = [
   { icon: <Building2 />, title: 'Colleges & Universities', text: 'Explore selected colleges in Balochistan and universities across Pakistan.', href: '/colleges', tone: 'blue' },
   { icon: <BookOpenCheck />, title: 'Tests & Exams', text: 'MDCAT, NUMS, USAT, LAT, ECAT, NET, NAT and Directorate routes.', href: '/tests', tone: 'rose' },
   { icon: <Sparkles />, title: 'Skills Learning', text: 'Free and practical learning routes from DigiSkills, NAVTTC and more.', href: '/skills', tone: 'purple' },
-  { icon: <MapPinned />, title: 'Balochistan Info', text: 'Education pathways, top colleges and provincial resources.', href: '/balochistan', tone: 'teal' },
+  { icon: <Globe2 />, title: 'Get Your Institution Online', text: 'Help your school, academy or local business build a professional web presence.', href: '/get-online', tone: 'teal' },
 ];
 
 const faqs = [
@@ -59,10 +59,10 @@ export default function Home() {
       <div className="container home-hero-content">
         <div className="hero-copy">
           <span className="eyebrow hero-eyebrow"><Sparkles size={14}/> Pakistan's Future · Balochistan First</span>
-          <h1>Your Education.<br/><span>Our Mission.</span></h1>
-          <p>TaleemAI is a free education platform for Pakistani students — especially from Balochistan — helping you find scholarships, colleges, careers, tests, skills and study-abroad opportunities without getting lost in scattered information.</p>
+          <h1>Your Education.<br/><span>Your Next Step.</span></h1>
+          <p>TaleemAI is a free bilingual education platform for Pakistani students — built Balochistan-first — bringing scholarships, results, admissions, careers, tests, skills and study-abroad guidance into one practical place.</p>
           <div className="home-search"><Search size={18}/><input aria-label="Search education resources" placeholder="Search scholarships, colleges, careers, tests, skills and more…" /><Link href="/scholarships" aria-label="Explore education resources"><ArrowRight /></Link></div>
-          <div className="home-tags"><span>Balochistan</span><span>Scholarships</span><span>Colleges</span><span>Career Guidance</span><span>Study Abroad</span><span>100% Free</span></div>
+          <div className="home-tags"><span>Balochistan-first</span><span>Scholarships</span><span>Results</span><span>Career Guidance</span><span>Study Abroad</span><span>100% Free</span></div><p className="hero-photo-credit">Hero photo: students on a university campus · Wikimedia Commons · CC BY-SA 3.0</p>
         </div>
       </div>
     </section>
@@ -94,6 +94,28 @@ export default function Home() {
       <div className="container">
         <div className="section-head"><div><span className="section-kicker">Boards & results</span><h2>Find your board, then go to the official source.</h2><p>BBISE is the Balochistan focus, but TaleemAI also points students toward Federal and other major board resources.</p></div><Link className="btn btn-secondary" href="/bbise">Open BBISE <ArrowRight size={14}/></Link></div>
         <div className="board-grid">{boardResources.slice(0,6).map(b=><a className="board-card" href={b.url} target="_blank" rel="noreferrer" key={b.name}><Landmark size={21}/><div><h3>{b.name}</h3><p>{b.desc}</p><span>Official portal <ArrowRight size={13}/></span></div></a>)}</div>
+      </div>
+    </section>
+
+    <section className="section bbi-seen-section">
+      <div className="container">
+        <div className="live-update-card"><div><span className="section-kicker">Current board update</span><h2>BBISE is actively publishing 2026 results and notices.</h2><p>The official board currently lists HSSC Annual Result 2026, SSC 2nd Annual Result 2026, DAE Annual Result 2026 and related student services. Open the official portal for the exact result or notice.</p></div><a className="btn btn-primary" href="https://bbise.edu.pk/Result" target="_blank" rel="noreferrer">Open BBISE result portal <ExternalLink size={14}/></a></div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container">
+        <div className="section-head"><div><span className="section-kicker">Official student helpdesk</span><h2>Start with the source that actually owns the information.</h2><p>Government and education portals change. TaleemAI points students to the original source for the final rule, deadline, result or application.</p></div><Link className="btn btn-secondary" href="/tests">See tests & results <ArrowRight size={14}/></Link></div>
+        <div className="source-grid">
+          {[
+            ['HEC', 'Scholarships, university aid and HEC tests.', 'https://www.hec.gov.pk/'],
+            ['BEEF', 'Balochistan scholarship schemes from school to higher study.', 'https://beef.org.pk/'],
+            ['CHTE Balochistan', 'College admissions, merit lists and Directorate routes.', 'https://portal.chte.gob.pk/'],
+            ['BBISE Quetta', 'Official SSC/HSSC results, notices and services.', 'https://bbise.edu.pk/'],
+            ['PM&DC', 'Medical/dental education and MDCAT notices.', 'https://pmdc.pk/'],
+            ['NAVTTC', 'Government skills, courses and vocational pathways.', 'https://navttc.gov.pk/'],
+          ].map(([name,text,url]) => <a className="source-card" href={url} target="_blank" rel="noreferrer" key={name}><div><h3>{name}</h3><p>{text}</p></div><ExternalLink size={16}/></a>)}
+        </div>
       </div>
     </section>
 

@@ -97,3 +97,61 @@ html.theme-dark{--bg:#08131d;--card:#0f2231;--ink:#eef7f5;--muted:#a9bcc8;--line
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; animation:none !important; }
 }
+
+/* ============================================================
+   TaleemAI V7 — final student-first polish
+   ============================================================ */
+.home-hero-cinematic{background-image:url('https://upload.wikimedia.org/wikipedia/commons/b/bc/Students_of_South_Asian_University%2C_New_Delhi.JPG')}
+.hero-photo-credit{font-size:10px!important;color:rgba(255,255,255,.62)!important;margin-top:12px!important}
+.source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.source-card{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:18px;border:1px solid var(--line);border-radius:17px;background:var(--card);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.source-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(18,52,74,.08);border-color:#b9d8d1}
+.source-card h3{margin:0 0 6px;color:var(--ink);font-size:15px}
+.source-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.55}
+.source-card>svg{flex:none;color:var(--brand);margin-top:2px}
+.result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.result-link-card{display:block;transition:transform .18s ease,box-shadow .18s ease}
+.result-link-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(18,52,74,.08)}
+.result-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--soft);color:var(--brand);margin-bottom:15px}
+.result-link-card h3{margin:0 0 8px;color:var(--ink);font-size:15px;line-height:1.35}
+.result-link-card p{margin:0 0 13px;color:var(--muted);font-size:12px;line-height:1.6}
+.result-link-card>span{display:inline-flex;align-items:center;gap:5px;color:var(--brand);font-size:10px;font-weight:800}
+.get-online-hero{background:radial-gradient(circle at 85% 25%,#dff6ee 0,transparent 32%),linear-gradient(180deg,#fff 0,#f7f9fc 100%)}
+.get-online-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.get-online-card{min-height:300px}
+.get-online-card .checklist{margin-top:16px}
+.get-online-process{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.get-online-process p{color:var(--muted);line-height:1.7;max-width:700px}
+.get-online-steps{display:grid;gap:10px}
+.get-online-steps>div{display:flex;align-items:center;gap:12px;padding:13px 15px;border:1px solid var(--line);border-radius:13px;background:var(--card);font-weight:700;font-size:12px}
+.get-online-steps b{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--soft);color:var(--brand)}
+.get-online-banner{align-items:center}
+.theme-dark .get-online-hero{background:radial-gradient(circle at 85% 25%,#103b33 0,transparent 32%),linear-gradient(180deg,#0b1a26 0,#08131d 100%)}
+.theme-dark .source-card,.theme-dark .get-online-steps>div{background:var(--card);border-color:var(--line)}
+.theme-dark .source-card p{color:var(--muted)}
+/* Mobile header: make the AI action unmistakable instead of a blank green square. */
+.header-actions .mentor-btn svg{color:#fff;stroke:#fff;display:block;flex:none}
+@media(max-width:600px){.header-actions .mentor-btn{width:42px;height:42px;display:grid;place-items:center;background:var(--brand);color:#fff;border:1px solid rgba(255,255,255,.08)}.header-actions .mentor-btn span{display:none}.header-actions .mentor-btn svg{width:20px;height:20px;stroke-width:2.5}.source-grid,.result-grid{grid-template-columns:1fr}.get-online-process{grid-template-columns:1fr}.get-online-card{min-height:auto}.get-online-actions{flex-direction:column}.get-online-actions .btn{width:100%}}
+@media(min-width:601px) and (max-width:1000px){.source-grid{grid-template-columns:1fr 1fr}.result-grid{grid-template-columns:1fr 1fr}.get-online-process{grid-template-columns:1fr}}
+
+/* Contact form — explicit controls prevent browser-default styling on mobile/desktop. */
+.contact-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:18px;align-items:start}
+.contact-grid .card{min-width:0}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.contact-form h2{margin:0 0 4px}
+.contact-form label{display:flex;flex-direction:column;gap:7px;color:var(--ink);font-size:12px;font-weight:800}
+.contact-form input,.contact-form textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);padding:12px 13px;font:inherit;font-size:13px;outline:none;transition:border-color .18s ease,box-shadow .18s ease}
+.contact-form input{min-height:46px}
+.contact-form textarea{min-height:155px;resize:vertical;line-height:1.55}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--muted);opacity:.9}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(45,201,166,.13)}
+.contact-form .btn{align-self:flex-start;border:0;cursor:pointer}
+.contact-email{display:inline-block;color:var(--brand);font-weight:800;margin-top:2px}
+.theme-dark .contact-form input,.theme-dark .contact-form textarea{background:#0e202e;color:var(--ink);border-color:var(--line)}
+@media(max-width:800px){.contact-grid{grid-template-columns:1fr}.contact-form .btn{width:100%}}
+
+
+.live-update-card{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:25px 28px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(135deg,var(--card),var(--soft));}
+.live-update-card h2{margin:5px 0 8px;font-size:22px;color:var(--ink);}
+.live-update-card p{margin:0;max-width:760px;color:var(--muted);font-size:12px;line-height:1.65;}
+@media(max-width:700px){.live-update-card{flex-direction:column;align-items:flex-start;padding:21px}.live-update-card .btn{width:100%}}
