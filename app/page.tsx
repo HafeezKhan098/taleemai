@@ -5,9 +5,18 @@ import { scholarships, careers, skills, boardResources } from '@/lib/data';
 import { ScholarshipCard } from '@/components/ScholarshipCard';
 
 export const metadata: Metadata = {
-  title: 'Pakistan Education, Scholarships & Career Guidance | Balochistan Students',
-  description: 'TaleemAI is a free bilingual education platform for Pakistani students, especially Balochistan: scholarships, BBISE and board results, colleges, careers, tests, skills and study abroad guidance.',
-  keywords: ['Balochistan scholarships', 'Pakistan scholarships', 'Balochistan students', 'career counseling Pakistan', 'BBISE result', 'Federal Board result', 'colleges in Balochistan', 'universities in Balochistan', 'study abroad scholarships Pakistan', 'education guidance Pakistan'],
+  title: 'TaleemAI | Pakistan Education & Scholarships',
+  description: 'Free bilingual education, scholarships, results, careers, tests and study-abroad guidance for students in Pakistan, with a Balochistan-first focus.',
+  keywords: [
+    'Balochistan scholarships',
+    'Pakistan scholarships',
+    'BBISE result',
+    'Balochistan colleges',
+    'career guidance Pakistan',
+    'study abroad scholarships Pakistan',
+    'MDCAT Pakistan',
+    'education Pakistan',
+  ],
 };
 
 const quickCards = [
@@ -58,54 +67,61 @@ export default function Home() {
       <div className="home-hero-overlay" />
       <div className="container home-hero-content">
         <div className="hero-copy">
-          <span className="eyebrow hero-eyebrow"><Sparkles size={14}/> Pakistan's Future · Balochistan First</span>
-          <h1>Your Education.<br/><span>Your Next Step.</span></h1>
+          <span className="eyebrow hero-eyebrow"><Sparkles size={14} /> Pakistan's Future · Balochistan First</span>
+          <h1>Your Education.<br /><span>Your Next Step.</span></h1>
           <p>TaleemAI is a free bilingual education platform for Pakistani students — built Balochistan-first — bringing scholarships, results, admissions, careers, tests, skills and study-abroad guidance into one practical place.</p>
-          <div className="home-search"><Search size={18}/><input aria-label="Search education resources" placeholder="Search scholarships, colleges, careers, tests, skills and more…" /><Link href="/scholarships" aria-label="Explore education resources"><ArrowRight /></Link></div>
-          <div className="home-tags"><span>Balochistan-first</span><span>Scholarships</span><span>Results</span><span>Career Guidance</span><span>Study Abroad</span><span>100% Free</span></div><p className="hero-photo-credit">Hero photo: students on a university campus · Wikimedia Commons · CC BY-SA 3.0</p>
+          <div className="home-search"><Search size={18} /><input aria-label="Search education resources" placeholder="Search scholarships, colleges, careers, tests, skills and more…" /><Link href="/scholarships" aria-label="Explore education resources"><ArrowRight /></Link></div>
+          <div className="home-tags"><span>Balochistan-first</span><span>Scholarships</span><span>Results</span><span>Career Guidance</span><span>Study Abroad</span><span>100% Free</span></div>
         </div>
       </div>
     </section>
 
     <section className="section quick-section">
       <div className="container">
-        <div className="section-head"><div><span className="section-kicker">Quick access</span><h2>Find what you need, without the confusion.</h2><p>Simple starting points for the questions students ask every day.</p></div><Link className="text-link" href="/mentor">Ask TaleemAI <ArrowRight size={14}/></Link></div>
+        <div className="section-head"><div><span className="section-kicker">Quick access</span><h2>Find what you need, without the confusion.</h2><p>Simple starting points for the questions students ask every day.</p></div><Link className="text-link" href="/mentor">Ask TaleemAI <ArrowRight size={14} /></Link></div>
         <div className="quick-card-grid">
-          {quickCards.map(c => <Link href={c.href} key={c.href} className={`quick-card ${c.tone}`}><div className="quick-icon">{c.icon}</div><div><h3>{c.title}</h3><p>{c.text}</p></div><span className="quick-arrow"><ArrowRight size={16}/></span></Link>)}
+          {quickCards.map(c => <Link href={c.href} key={c.href} className={`quick-card ${c.tone}`}><div className="quick-icon">{c.icon}</div><div><h3>{c.title}</h3><p>{c.text}</p></div><span className="quick-arrow"><ArrowRight size={16} /></span></Link>)}
         </div>
       </div>
     </section>
 
     <section className="section colleges-preview-section">
       <div className="container">
-        <div className="section-head"><div><span className="section-kicker">Balochistan education</span><h2>Top Colleges in Balochistan</h2><p>Start with institutions students commonly need to compare — not a random directory.</p></div><Link className="btn btn-secondary" href="/colleges">Explore colleges <ArrowRight size={14}/></Link></div>
+        <div className="section-head"><div><span className="section-kicker">Balochistan education</span><h2>Top Colleges in Balochistan</h2><p>Start with institutions students commonly need to compare — not a random directory.</p></div><Link className="btn btn-secondary" href="/colleges">Explore colleges <ArrowRight size={14} /></Link></div>
         <div className="home-college-strip">
           {[
-            ['Government Postgraduate Science College Quetta','Public · Quetta','https://gpsc.edu.pk/assets/images/home/college-campus.webp','/colleges'],
-            ['Islamia Boys College Quetta','College · Quetta','','/colleges'],
-            ['Tameer-i-Nau Public College','Trust · Quetta','https://tameerinau.edu.pk/wp-content/uploads/elementor/thumbs/1779354147500-scaled-rolpct6m0m333vdfhd478ymmk05e9x189zcyrhr470.jpg','/colleges'],
-            ['Iqra Residential School & College','Residential · Quetta','https://irsc.edu.pk/wp-content/uploads/2025/11/day1-sports-300x300.jpg','/colleges'],
-          ].map(([name,type,image,href]) => <Link href={href} className="home-college-card" key={name}>{image ? <img src={image} alt={`${name} official source photo`} loading="lazy"/> : <div className="home-college-photo-placeholder"><Building2 size={34}/><span>Official photo not verified yet</span></div>}<div><span>{type}</span><h3>{name}</h3><b>View admission guidance <ArrowRight size={13}/></b></div></Link>)}
+            ['Government Postgraduate Science College Quetta', 'Public · Quetta', '/images/science.jpg', '/colleges'],
+            ['Tameer-i-Nau Public College', 'Trust · Quetta', '/images/tameerno.jpg', '/colleges'],
+            ['Iqra Residential School & College', 'Residential · Quetta', '/images/IRSC.jpg', '/colleges'],
+            ['Pak Turk Maarif College', 'College · Quetta', '/images/pakturk.jpg', '/colleges'],
+            ['City School Girls', 'School · Quetta', '/images/city.jpg', '/colleges'],
+            ['Girls Cantt', 'School · Quetta', '/images/girls%20cant.jpg', '/colleges'],
+            ['Cantt Public School Pishin', 'School · Pishin', '/images/pishin.jpg', '/colleges'],
+            ['Cadet College Nushki', 'Cadet College · Nushki', '/images/nushki.jpg', '/colleges'],
+            ['Cadet College KSF', 'Cadet College · Balochistan', '/images/ksf.jpg', '/colleges'],
+            ['Islamia Boys College Quetta', 'College · Quetta', '/images/islamia.jpg', '/colleges'],
+            ['Islamia Girls', 'College · Quetta', '/images/Islamia%20G.jpg', '/colleges'],
+          ].map(([name, type, image, href]) => <Link href={href} className="home-college-card" key={name}><img src={image} alt={`${name} campus photo`} loading="lazy" /><div><span>{type}</span><h3>{name}</h3><b>View admission guidance <ArrowRight size={13} /></b></div></Link>)}
         </div>
       </div>
     </section>
 
     <section className="section section-alt">
       <div className="container">
-        <div className="section-head"><div><span className="section-kicker">Boards & results</span><h2>Find your board, then go to the official source.</h2><p>BBISE is the Balochistan focus, but TaleemAI also points students toward Federal and other major board resources.</p></div><Link className="btn btn-secondary" href="/bbise">Open BBISE <ArrowRight size={14}/></Link></div>
-        <div className="board-grid">{boardResources.slice(0,6).map(b=><a className="board-card" href={b.url} target="_blank" rel="noreferrer" key={b.name}><Landmark size={21}/><div><h3>{b.name}</h3><p>{b.desc}</p><span>Official portal <ArrowRight size={13}/></span></div></a>)}</div>
+        <div className="section-head"><div><span className="section-kicker">Boards & results</span><h2>Find your board, then go to the official source.</h2><p>BBISE is the Balochistan focus, but TaleemAI also points students toward Federal and other major board resources.</p></div><Link className="btn btn-secondary" href="/bbise">Open BBISE <ArrowRight size={14} /></Link></div>
+        <div className="board-grid">{boardResources.slice(0, 6).map(b => <a className="board-card" href={b.url} target="_blank" rel="noreferrer" key={b.name}><Landmark size={21} /><div><h3>{b.name}</h3><p>{b.desc}</p><span>Official portal <ArrowRight size={13} /></span></div></a>)}</div>
       </div>
     </section>
 
     <section className="section bbi-seen-section">
       <div className="container">
-        <div className="live-update-card"><div><span className="section-kicker">Current board update</span><h2>BBISE is actively publishing 2026 results and notices.</h2><p>The official board currently lists HSSC Annual Result 2026, SSC 2nd Annual Result 2026, DAE Annual Result 2026 and related student services. Open the official portal for the exact result or notice.</p></div><a className="btn btn-primary" href="https://bbise.edu.pk/Result" target="_blank" rel="noreferrer">Open BBISE result portal <ExternalLink size={14}/></a></div>
+        <div className="live-update-card"><div><span className="section-kicker">Current board update</span><h2>BBISE is actively publishing 2026 results and notices.</h2><p>The official board currently lists HSSC Annual Result 2026, SSC 2nd Annual Result 2026, DAE Annual Result 2026 and related student services. Open the official portal for the exact result or notice.</p></div><a className="btn btn-primary" href="https://bbise.edu.pk/Result" target="_blank" rel="noreferrer">Open BBISE result portal <ExternalLink size={14} /></a></div>
       </div>
     </section>
 
     <section className="section">
       <div className="container">
-        <div className="section-head"><div><span className="section-kicker">Official student helpdesk</span><h2>Start with the source that actually owns the information.</h2><p>Government and education portals change. TaleemAI points students to the original source for the final rule, deadline, result or application.</p></div><Link className="btn btn-secondary" href="/tests">See tests & results <ArrowRight size={14}/></Link></div>
+        <div className="section-head"><div><span className="section-kicker">Official student helpdesk</span><h2>Start with the source that actually owns the information.</h2><p>Government and education portals change. TaleemAI points students to the original source for the final rule, deadline, result or application.</p></div><Link className="btn btn-secondary" href="/tests">See tests & results <ArrowRight size={14} /></Link></div>
         <div className="source-grid">
           {[
             ['HEC', 'Scholarships, university aid and HEC tests.', 'https://www.hec.gov.pk/'],
@@ -114,7 +130,7 @@ export default function Home() {
             ['BBISE Quetta', 'Official SSC/HSSC results, notices and services.', 'https://bbise.edu.pk/'],
             ['PM&DC', 'Medical/dental education and MDCAT notices.', 'https://pmdc.pk/'],
             ['NAVTTC', 'Government skills, courses and vocational pathways.', 'https://navttc.gov.pk/'],
-          ].map(([name,text,url]) => <a className="source-card" href={url} target="_blank" rel="noreferrer" key={name}><div><h3>{name}</h3><p>{text}</p></div><ExternalLink size={16}/></a>)}
+          ].map(([name, text, url]) => <a className="source-card" href={url} target="_blank" rel="noreferrer" key={name}><div><h3>{name}</h3><p>{text}</p></div><ExternalLink size={16} /></a>)}
         </div>
       </div>
     </section>
@@ -122,14 +138,14 @@ export default function Home() {
     <section className="section">
       <div className="container">
         <div className="section-head"><div><span className="section-kicker">Scholarship guide</span><h2>Opportunities worth checking</h2><p>We explain who an opportunity is for and send you to the official source before you apply.</p></div><Link className="btn btn-secondary" href="/scholarships">View scholarships</Link></div>
-        <div className="grid-3">{scholarships.slice(0,3).map(s=><ScholarshipCard key={s.id} s={s}/>)}</div>
+        <div className="grid-3">{scholarships.slice(0, 3).map(s => <ScholarshipCard key={s.id} s={s} />)}</div>
       </div>
     </section>
 
     <section className="section section-alt">
       <div className="container mentor-home-banner">
         <div><span className="section-kicker">Need a personal answer?</span><h2>Ask TaleemAI about your own situation.</h2><p>Tell it your class, marks, city, subjects, budget and goal. It can help you turn a confusing choice into practical next steps.</p><div className="home-mini-points"><span>✓ Natural conversation</span><span>✓ English + Urdu</span><span>✓ Official links</span><span>✓ No paid membership</span></div></div>
-        <Link className="btn btn-primary" href="/mentor"><Bot size={17}/> Open AI Mentor</Link>
+        <Link className="btn btn-primary" href="/mentor"><Bot size={17} /> Open AI Mentor</Link>
       </div>
     </section>
 
@@ -147,10 +163,10 @@ export default function Home() {
         <h3>Career guidance that starts with the student</h3>
         <p>A career choice should not be based only on what sounds popular. Students can use TaleemAI to compare medical, computing, engineering, business, social sciences, education, creative and technical pathways, then check the subjects, tests, degree route, cost and skills required for each.</p>
         <h3>Frequently asked questions</h3>
-        <div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div>
+        <div className="faq-list">{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div>
       </div>
     </section>
 
-    <section className="section"><div className="container"><div className="banner"><div><span className="eyebrow"><ShieldCheck size={14}/> Built around official sources</span><h2>Simple guidance. Verify before you apply.</h2><p>TaleemAI is a starting point for students — deadlines, fees, seats and eligibility can change, so always check the linked official source.</p></div><Link className="btn btn-primary" href="/contact">Suggest an update <ArrowRight size={14}/></Link></div></div></section>
+    <section className="section"><div className="container"><div className="banner"><div><span className="eyebrow"><ShieldCheck size={14} /> Built around official sources</span><h2>Simple guidance. Verify before you apply.</h2><p>TaleemAI is a starting point for students — deadlines, fees, seats and eligibility can change, so always check the linked official source.</p></div><Link className="btn btn-primary" href="/contact">Suggest an update <ArrowRight size={14} /></Link></div></div></section>
   </>;
 }
